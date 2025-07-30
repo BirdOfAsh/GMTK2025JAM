@@ -1,16 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxoxkpsyiiw6i"]
+[gd_scene load_steps=5 format=3 uid="uid://cxoxkpsyiiw6i"]
 
 [ext_resource type="Script" uid="uid://5ptycblx2vct" path="res://Timer/timer_label.gd" id="1_n0qsc"]
+[ext_resource type="PackedScene" uid="uid://26fc574m2bic" path="res://Player/player.tscn" id="2_dilhk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_n0qsc"]
 size = Vector3(10, 0.1, 10)
 
-[node name="Level1" type="Node3D"]
+[sub_resource type="SphereMesh" id="SphereMesh_dilhk"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Level1" type="Node3D"]
 
 [node name="TimerLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+visible = false
 texture_filter = 0
 script = ExtResource("1_n0qsc")
 waitTime = 5.0
@@ -19,8 +21,17 @@ waitTime = 5.0
 wait_time = 5.0
 one_shot = true
 
+[node name="Player" parent="." instance=ExtResource("2_dilhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 mesh = SubResource("BoxMesh_n0qsc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+mesh = SubResource("SphereMesh_dilhk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.12941, 0.224144, 0, 0.866025, 0.5, -0.258819, -0.482963, 0.836516, 1, 3, 2)
 
 [connection signal="timeout" from="TimerLabel/Timer" to="TimerLabel" method="_on_timer_timeout"]
