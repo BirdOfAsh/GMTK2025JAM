@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxoxkpsyiiw6i"]
+
+[ext_resource type="Script" uid="uid://5ptycblx2vct" path="res://Timer/timer_label.gd" id="1_n0qsc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_n0qsc"]
+size = Vector3(10, 0.1, 10)
+
+[node name="Level1" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="TimerLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+texture_filter = 0
+script = ExtResource("1_n0qsc")
+waitTime = 5.0
+
+[node name="Timer" type="Timer" parent="TimerLabel"]
+wait_time = 5.0
+one_shot = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = SubResource("BoxMesh_n0qsc")
+
+[connection signal="timeout" from="TimerLabel/Timer" to="TimerLabel" method="_on_timer_timeout"]
