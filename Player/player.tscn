@@ -11,4 +11,5 @@ script = ExtResource("1_l8h54")
 shape = SubResource("CylinderShape3D_kww3p")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.649226, 0)
 current = true

@@ -6,7 +6,7 @@ extends CharacterBody3D
 var speed : int = 300
 var direction : Vector3
 var inputDirection : Vector2i
-var mouseSensitivity = 5
+var mouseSensitivity = 3
 
 
 func _ready() -> void:
@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = direction * speed * delta
 	move_and_slide()
+
 
 
 func _input(event: InputEvent) -> void:
