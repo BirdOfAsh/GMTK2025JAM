@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5ptycblx2vct" path="res://Timer/timer_label.gd" id="1_n0qsc"]
 [ext_resource type="PackedScene" uid="uid://26fc574m2bic" path="res://Player/player.tscn" id="2_dilhk"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_dilhk"]
+[ext_resource type="PackedScene" uid="uid://bx4wniecksstx" path="res://InteractableObjects/Objects/sphere_of_testing.tscn" id="3_3mhv4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dilhk"]
 size = Vector3(10, 0.1, 10)
@@ -27,91 +26,90 @@ one_shot = true
 [node name="Player" parent="." instance=ExtResource("2_dilhk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="SphereOfTesting" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
-mesh = SubResource("SphereMesh_dilhk")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.965926, -0.12941, 0.224144, 0, 0.866025, 0.5, -0.258819, -0.482963, 0.836516, 1, 3, 2)
+transform = Transform3D(0.727545, -0.34303, 0.594145, 7.71341e-09, 0.866025, 0.5, -0.68606, -0.363773, 0.630073, 4.62879, 9.55445, 4.61664)
 
 [node name="Box" type="Node" parent="."]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Box"]
+[node name="Floor" type="RigidBody3D" parent="Box"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 gravity_scale = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/Floor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_dilhk")
 
-[node name="Box2" type="MeshInstance3D" parent="Box/RigidBody3D"]
+[node name="Box2" type="MeshInstance3D" parent="Box/Floor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_n0qsc")
 skeleton = NodePath("")
 
-[node name="RigidBody3D2" type="RigidBody3D" parent="Box"]
+[node name="Wall" type="RigidBody3D" parent="Box"]
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 5, 5)
 gravity_scale = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/RigidBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/Wall"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_dilhk")
 
-[node name="Box2" type="MeshInstance3D" parent="Box/RigidBody3D2"]
+[node name="Box2" type="MeshInstance3D" parent="Box/Wall"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_n0qsc")
 skeleton = NodePath("")
 
-[node name="RigidBody3D3" type="RigidBody3D" parent="Box"]
+[node name="Ceiling" type="RigidBody3D" parent="Box"]
 transform = Transform3D(1, 0, 0, 0, -2.18557e-07, 1, 0, -1, -2.18557e-07, 0, 10, 4.76837e-07)
 gravity_scale = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/RigidBody3D3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/Ceiling"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_dilhk")
 
-[node name="Box2" type="MeshInstance3D" parent="Box/RigidBody3D3"]
+[node name="Box2" type="MeshInstance3D" parent="Box/Ceiling"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_n0qsc")
 skeleton = NodePath("")
 
-[node name="RigidBody3D4" type="RigidBody3D" parent="Box"]
+[node name="Wall2" type="RigidBody3D" parent="Box"]
 transform = Transform3D(1, 0, 0, 0, -1, -2.62268e-07, 0, 2.62268e-07, -1, 0, 5, -5)
 gravity_scale = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/RigidBody3D4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/Wall2"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_dilhk")
 
-[node name="Box2" type="MeshInstance3D" parent="Box/RigidBody3D4"]
+[node name="Box2" type="MeshInstance3D" parent="Box/Wall2"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_n0qsc")
 skeleton = NodePath("")
 
-[node name="RigidBody3D5" type="RigidBody3D" parent="Box"]
+[node name="Wall3" type="RigidBody3D" parent="Box"]
 transform = Transform3D(-4.37114e-08, 2.18557e-07, -1, 1, 9.55343e-15, -4.37114e-08, 0, -1, -2.18557e-07, -5, 5, 4.76837e-07)
 gravity_scale = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/RigidBody3D5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/Wall3"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_dilhk")
 
-[node name="Box2" type="MeshInstance3D" parent="Box/RigidBody3D5"]
+[node name="Box2" type="MeshInstance3D" parent="Box/Wall3"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_n0qsc")
 skeleton = NodePath("")
 
-[node name="RigidBody3D6" type="RigidBody3D" parent="Box"]
-transform = Transform3D(-4.37114e-08, 2.18557e-07, -1, 1, 9.55343e-15, -4.37114e-08, 0, -1, -2.18557e-07, 5, 5, 4.76837e-07)
+[node name="Wall4" type="RigidBody3D" parent="Box"]
+transform = Transform3D(-4.37114e-08, 2.18557e-07, -1, 1, 9.55343e-15, -4.37114e-08, 0, -1, -2.18557e-07, 4.95627, 5.04248, -0.0897346)
 gravity_scale = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/RigidBody3D6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/Wall4"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_dilhk")
 
-[node name="Box2" type="MeshInstance3D" parent="Box/RigidBody3D6"]
+[node name="Box2" type="MeshInstance3D" parent="Box/Wall4"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_n0qsc")
 skeleton = NodePath("")
+
+[node name="SphereOfTesting2" parent="." instance=ExtResource("3_3mhv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50671, 1.40789, -2.38879)
 
 [connection signal="timeout" from="TimerLabel/Timer" to="TimerLabel" method="_on_timer_timeout"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx4wniecksstx"]
+
+[ext_resource type="Script" uid="uid://bxxu1mklntia4" path="res://InteractableObjects/Scripts/sphere_of_testing.gd" id="1_2w04l"]
+[ext_resource type="PackedScene" uid="uid://68x0bdce1ya" path="res://InteractableObjects/Interactable.tscn" id="1_p4u51"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dilhk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rf6l5"]
+
+[node name="SphereOfTesting" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_dilhk")
+script = ExtResource("1_2w04l")
+
+[node name="Interactable" parent="." instance=ExtResource("1_p4u51")]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_rf6l5")
