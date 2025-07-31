@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvsdscjarstei"]
+
+[ext_resource type="PackedScene" uid="uid://1ay26hbrrw1w" path="res://Resistor.blend" id="1_5yfpj"]
+[ext_resource type="Script" uid="uid://pi25hu6qwr7f" path="res://InteractableObjects/Scripts/resistor.gd" id="1_b4p3t"]
+[ext_resource type="Script" uid="uid://dt67bl4dq7xod" path="res://InteractableObjects/Interactable.gd" id="2_b4p3t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b4p3t"]
+size = Vector3(1, 3, 1)
+
+[node name="Resistor" type="Node3D"]
+script = ExtResource("1_b4p3t")
+
+[node name="ResistorModel" parent="." instance=ExtResource("1_5yfpj")]
+
+[node name="Interactable" type="Node" parent="."]
+script = ExtResource("2_b4p3t")
+metadata/_custom_type_script = "uid://dt67bl4dq7xod"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_b4p3t")

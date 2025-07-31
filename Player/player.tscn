@@ -34,5 +34,8 @@ shape = SubResource("BoxShape3D_l8h54")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.508756, 0)
 mesh = SubResource("SphereMesh_4ntmi")
 
+[node name="HoldingMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.412111, -1.11619)
+
 [connection signal="area_entered" from="Camera3D/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Camera3D/Area3D" to="." method="_on_area_3d_area_exited"]

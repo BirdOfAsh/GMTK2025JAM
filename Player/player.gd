@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 @onready var camera : Camera3D = $Camera3D
 @onready var interactionArea : Area3D = $Camera3D/Area3D
+@onready var holdingMarker: Marker3D = $HoldingMarker
+
 
 ######## CAMERA ########
 var speed : int = 300
@@ -40,7 +42,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-
 func _input(event: InputEvent) -> void:
 	keyEPressed(event)
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -51,11 +52,16 @@ func _input(event: InputEvent) -> void:
 
 func keyEPressed(event: InputEvent):
 	if event.is_action_pressed("Interact") && objectLookingAt != null:
-		objectLookingAt.call("interact")
+		objectLookingAt.call("interact", self)
+
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	objectLookingAt = area.get_parent().find_child("Interactable")
 
 
-func _on_area_3d_area_exited(area: Area3D) -> void:
+func _on_area_3d_area_exited(_area: Area3D) -> void:
 	objectLookingAt = null
+
+
+func pickup(object : Node3D):
+	object.reparent(holdingMarker, false)
