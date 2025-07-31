@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxoxkpsyiiw6i"]
+[gd_scene load_steps=5 format=3 uid="uid://cxoxkpsyiiw6i"]
 
-[ext_resource type="Script" uid="uid://5ptycblx2vct" path="res://Timer/timer_label.gd" id="1_n0qsc"]
 [ext_resource type="PackedScene" uid="uid://26fc574m2bic" path="res://Player/player.tscn" id="2_dilhk"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_dilhk"]
@@ -12,17 +11,6 @@ size = Vector3(10, 0.1, 10)
 size = Vector3(10, 0.1, 10)
 
 [node name="Level1" type="Node3D"]
-
-[node name="TimerLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-visible = false
-texture_filter = 0
-script = ExtResource("1_n0qsc")
-waitTime = 5.0
-
-[node name="Timer" type="Timer" parent="TimerLabel"]
-wait_time = 5.0
-one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("2_dilhk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -113,5 +101,3 @@ shape = SubResource("BoxShape3D_dilhk")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_n0qsc")
 skeleton = NodePath("")
-
-[connection signal="timeout" from="TimerLabel/Timer" to="TimerLabel" method="_on_timer_timeout"]
