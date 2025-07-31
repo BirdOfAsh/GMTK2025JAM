@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxoxkpsyiiw6i"]
+[gd_scene load_steps=12 format=3 uid="uid://cxoxkpsyiiw6i"]
 
 [ext_resource type="Script" uid="uid://5ptycblx2vct" path="res://Timer/timer_label.gd" id="1_n0qsc"]
 [ext_resource type="PackedScene" uid="uid://26fc574m2bic" path="res://Player/player.tscn" id="2_dilhk"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bmf34kuoll5m2" path="res://InteractableObjects/Objects/resistor_holder.tscn" id="5_rfktq"]
 [ext_resource type="PackedScene" uid="uid://bvsdscjarstei" path="res://InteractableObjects/Objects/resistor.tscn" id="5_syshm"]
 [ext_resource type="PackedScene" uid="uid://bgfrcdfsu1gi5" path="res://InteractableObjects/BlenderModels/Wall.blend" id="6_rfktq"]
+[ext_resource type="PackedScene" uid="uid://nqgan1mxomhb" path="res://InteractableObjects/Objects/lightbulb.tscn" id="7_0urlm"]
+[ext_resource type="PackedScene" uid="uid://o5ilu622v3pt" path="res://InteractableObjects/Objects/power.tscn" id="8_77x7w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf6l5"]
 size = Vector3(18, 0.5, 6)
@@ -34,9 +36,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25032, 0)
 
 [node name="SphereOfTesting2" parent="." instance=ExtResource("3_3mhv4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50671, 1.40789, -2.38879)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.727545, -0.34303, 0.594145, 7.71341e-09, 0.866025, 0.5, -0.68606, -0.363773, 0.630073, 4.62879, 9.55445, 4.61664)
 
 [node name="Box" type="Node3D" parent="."]
 
@@ -107,5 +106,22 @@ transform = Transform3D(-4.37114e-08, -0.999998, 0, 1, -4.37114e-08, 0, 0, 0, 1,
 
 [node name="ResistorHolder" parent="Box" instance=ExtResource("5_rfktq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 8)
+
+[node name="Lightbulb" parent="Box" instance=ExtResource("7_0urlm")]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 8.74228e-08, 6, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Box/Lightbulb"]
+transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 4.26728e-08, 0.511881, -2.17518e-07)
+light_color = Color(1, 1, 0.27451, 1)
+light_energy = 3.2
+spot_range = 10.0
+spot_angle = 91.76
+spot_angle_attenuation = 0.19615
+
+[node name="TestBulb" parent="Box" instance=ExtResource("7_0urlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 8)
+
+[node name="Power" parent="Box" instance=ExtResource("8_77x7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1.22392e-06)
 
 [connection signal="timeout" from="TimerLabel/Timer" to="TimerLabel" method="_on_timer_timeout"]

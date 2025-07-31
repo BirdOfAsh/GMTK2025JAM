@@ -67,6 +67,7 @@ func _on_area_3d_area_exited(_area: Area3D) -> void:
 
 func pickup(object : Node3D) -> void:
 	if heldObject == null:
+		position = Vector3.ZERO
 		object.reparent(holdingMarker, false)
 		heldObject = object
 
@@ -82,4 +83,3 @@ func place(placementNode : Node3D) -> void:
 	heldObject.reparent(placementNode, false)
 	heldObject = null
 	
-	print("placed object")

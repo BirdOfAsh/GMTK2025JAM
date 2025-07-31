@@ -1,4 +1,4 @@
-class_name Resistor
+class_name Lightbulb
 extends Node3D
 
 @onready var collision: CollisionShape3D = $Area3D/CollisionShape3D

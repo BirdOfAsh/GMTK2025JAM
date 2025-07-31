@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://o5ilu622v3pt"]
+
+[ext_resource type="PackedScene" uid="uid://dt3fllcyxgda" path="res://InteractableObjects/BlenderModels/Power.blend" id="1_jfogi"]
+[ext_resource type="Script" uid="uid://cx63ipvqaas44" path="res://InteractableObjects/Scripts/power.gd" id="2_pvthh"]
+[ext_resource type="Script" uid="uid://dt67bl4dq7xod" path="res://InteractableObjects/Interactable.gd" id="3_gemg7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gemg7"]
+size = Vector3(1.36816, 2.91211, 1.14063)
+
+[node name="Power" instance=ExtResource("1_jfogi")]
+script = ExtResource("2_pvthh")
+
+[node name="Handle" parent="." index="1"]
+transform = Transform3D(-8.2503e-16, 2.37306e-08, 0.0152189, -0.25, -1.37394e-08, 0, 1.09278e-08, -0.314321, 1.149e-09, 0.662123, 2.12606, 0)
+
+[node name="Area3D" type="Area3D" parent="." index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0363883, 1.52483, 0)
+shape = SubResource("BoxShape3D_gemg7")
+
+[node name="Interactable" type="Node" parent="." index="5"]
+script = ExtResource("3_gemg7")
+metadata/_custom_type_script = "uid://dt67bl4dq7xod"
