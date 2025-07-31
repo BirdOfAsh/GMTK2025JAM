@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1ay26hbrrw1w"
-path="res://.godot/imported/Resistor.blend-a42470384ee038f7750a99490a6a2a08.scn"
+uid="uid://casnmatboa7wx"
+path="res://.godot/imported/ResistorContainer.blend-24b8d1c2b8f4ef90919c1c833b74fb22.scn"
 
 [deps]
 
-source_file="res://Resistor.blend"
-dest_files=["res://.godot/imported/Resistor.blend-a42470384ee038f7750a99490a6a2a08.scn"]
+source_file="res://InteractableObjects/BlenderModels/ResistorContainer.blend"
+dest_files=["res://.godot/imported/ResistorContainer.blend-24b8d1c2b8f4ef90919c1c833b74fb22.scn"]
 
 [params]
 

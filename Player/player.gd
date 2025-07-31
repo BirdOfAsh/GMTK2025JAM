@@ -14,6 +14,8 @@ var mouseSensitivity = 2
 ######## INTERACTION ########
 var objectLookingAt: Node
 ######## INTERACTION ########
+var heldObject : Node3D
+
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -63,5 +65,21 @@ func _on_area_3d_area_exited(_area: Area3D) -> void:
 	objectLookingAt = null
 
 
-func pickup(object : Node3D):
-	object.reparent(holdingMarker, false)
+func pickup(object : Node3D) -> void:
+	if heldObject == null:
+		object.reparent(holdingMarker, false)
+		heldObject = object
+
+		print("picked up object")
+		print(object)
+
+
+func getHeldObject() -> Node3D:
+	return heldObject
+
+
+func place(placementNode : Node3D) -> void:
+	heldObject.reparent(placementNode, false)
+	heldObject = null
+	
+	print("placed object")

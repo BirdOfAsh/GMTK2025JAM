@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmf34kuoll5m2"]
+
+[ext_resource type="Script" uid="uid://dyjqtmadg3bf1" path="res://InteractableObjects/Scripts/resistor_holder.gd" id="1_ix4h5"]
+[ext_resource type="PackedScene" uid="uid://68x0bdce1ya" path="res://InteractableObjects/Interactable.tscn" id="3_fte8w"]
+[ext_resource type="PackedScene" uid="uid://casnmatboa7wx" path="res://InteractableObjects/BlenderModels/ResistorContainer.blend" id="3_ix4h5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ix4h5"]
+size = Vector3(5.11816, 2.32422, 1.56738)
+
+[node name="ResistorHolder" type="Node3D"]
+script = ExtResource("1_ix4h5")
+
+[node name="Interactable" parent="." instance=ExtResource("3_fte8w")]
+
+[node name="ResistorContainer" parent="." instance=ExtResource("3_ix4h5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.270023, 0)
+shape = SubResource("BoxShape3D_ix4h5")
+
+[node name="ResistorMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02231, 0)

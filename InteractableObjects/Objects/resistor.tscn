@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvsdscjarstei"]
 
-[ext_resource type="PackedScene" uid="uid://1ay26hbrrw1w" path="res://Resistor.blend" id="1_5yfpj"]
+[ext_resource type="PackedScene" uid="uid://1ay26hbrrw1w" path="res://InteractableObjects/BlenderModels/Resistor.blend" id="1_5yfpj"]
 [ext_resource type="Script" uid="uid://pi25hu6qwr7f" path="res://InteractableObjects/Scripts/resistor.gd" id="1_b4p3t"]
 [ext_resource type="Script" uid="uid://dt67bl4dq7xod" path="res://InteractableObjects/Interactable.gd" id="2_b4p3t"]
 

@@ -1,3 +1,3 @@
 extends Node
-func interaction():
+func interaction(player : CharacterBody3D):
 	print(name + " was interacted with!")
