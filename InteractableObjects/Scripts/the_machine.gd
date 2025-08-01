@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var bulbMarker: Marker3D = $Marker3D
+@onready var bulbMarker: Marker3D = $bulbMarker
 
 
 var heldBulb : Lightbulb

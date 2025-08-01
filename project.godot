@@ -19,6 +19,13 @@ config/icon="res://icon.svg"
 
 window/size/always_on_top=true
 
+[importer_defaults]
+
+animation_library={
+&"blender/meshes/colors": true,
+&"blender/nodes/cameras": false
+}
+
 [input]
 
 Forward={
