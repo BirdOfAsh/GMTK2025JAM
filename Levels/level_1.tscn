@@ -140,7 +140,6 @@ size = Vector3(18.4008, 1.13403, 19.1348)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103161, 2.49463, 9.01464)
 size = Vector3(18.033, 6.98926, 0.376465)
 
-<<<<<<< HEAD
 [node name="Lightbulb2" parent="Box" instance=ExtResource("7_0urlm")]
 transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -4.41394, 6, 0)
 
@@ -180,11 +179,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1.46451)
 [node name="LeverMachine3" parent="Box" instance=ExtResource("8_77x7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -2.84469)
 
-[node name="TheMachine" parent="." instance=ExtResource("9_xoyoh")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.37114e-08, 0, 0)
-
-[connection signal="timeout" from="TimerLabel/Timer" to="TimerLabel" method="_on_timer_timeout"]
-=======
 [node name="TheMachine" parent="Box" instance=ExtResource("9_xoyoh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
->>>>>>> d0a80e4e699d24a538643b5c9c8df637fe03303e
+
+[node name="TheMachine" parent="." instance=ExtResource("9_xoyoh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.37114e-08, 0, 0)
