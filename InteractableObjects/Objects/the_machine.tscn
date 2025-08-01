@@ -16,34 +16,36 @@ size = Vector3(1.5498, 6.05835, 0.514648)
 [node name="TheMachine" instance=ExtResource("1_vnki1")]
 script = ExtResource("2_ewivi")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.176426, 0)
-shape = SubResource("CylinderShape3D_ey44n")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="." index="3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86975, -1.2483)
-shape = SubResource("BoxShape3D_ewivi")
-
-[node name="StaticBody3D3" type="StaticBody3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.51864)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86975, -1.2483)
-shape = SubResource("BoxShape3D_ewivi")
-
-[node name="Interactable" type="Node" parent="." index="5"]
+[node name="Interactable" type="Node" parent="." index="2"]
 script = ExtResource("3_6db6l")
 metadata/_custom_type_script = "uid://dt67bl4dq7xod"
 
-[node name="Marker3D" type="Marker3D" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.17361, -1.46738)
+[node name="Collisions" type="Node" parent="." index="3"]
 
-[node name="Area3D" type="Area3D" parent="." index="7"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Collisions" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.176426, 0)
+shape = SubResource("CylinderShape3D_ey44n")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Collisions" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86975, -1.2483)
+shape = SubResource("BoxShape3D_ewivi")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Collisions" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.51864)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86975, -1.2483)
+shape = SubResource("BoxShape3D_ewivi")
+
+[node name="bulbArea" type="Area3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.21017, -1.50407)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bulbArea" index="0"]
 shape = SubResource("BoxShape3D_6db6l")
+
+[node name="bulbMarker" type="Marker3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.17361, -1.46738)
