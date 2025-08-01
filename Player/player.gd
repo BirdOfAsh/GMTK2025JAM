@@ -10,7 +10,6 @@ var speed : int = 300
 var direction : Vector3
 var inputDirection : Vector2i
 var mouseSensitivity = 2
-######## CAMERA ########
 ######## INTERACTION ########
 var objectLookingAt: Node
 ######## INTERACTION ########
@@ -19,6 +18,10 @@ var heldObject : Node3D
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _process(delta: float) -> void:
+	lerpToMarker(delta)
 
 
 func _physics_process(delta: float) -> void:
@@ -67,9 +70,8 @@ func _on_area_3d_area_exited(_area: Area3D) -> void:
 
 func pickup(object : Node3D) -> void:
 	if heldObject == null:
-		object.reparent(holdingMarker, false)
+		object.reparent(holdingMarker)
 		heldObject = object
-		heldObject.position = Vector3.ZERO
 
 		print("picked up object")
 		print(object)
@@ -80,6 +82,11 @@ func getHeldObject() -> Node3D:
 
 
 func place(placementNode : Node3D) -> void:
-	heldObject.reparent(placementNode, false)
+	heldObject.reparent(placementNode)
 	heldObject = null
 	
+
+func lerpToMarker(delta : float):
+	if heldObject != null:
+		heldObject.global_position = lerp(heldObject.global_position, holdingMarker.global_position, 5 * delta)
+		heldObject.rotation_degrees = lerp(heldObject.rotation_degrees, Vector3.ZERO, 5 * delta)
