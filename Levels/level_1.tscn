@@ -1,5 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxoxkpsyiiw6i"]
-
+[gd_scene load_steps=15 format=3 uid="uid://cxoxkpsyiiw6i"]
 [ext_resource type="PackedScene" uid="uid://26fc574m2bic" path="res://Player/player.tscn" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://bx4wniecksstx" path="res://InteractableObjects/Objects/sphere_of_testing.tscn" id="3_3mhv4"]
 [ext_resource type="PackedScene" uid="uid://crt7jht55cbbb" path="res://world/floor.blend" id="5_62b6n"]
