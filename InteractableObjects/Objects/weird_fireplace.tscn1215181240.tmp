@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://h1r50kkxgqpt"]
+
+[ext_resource type="PackedScene" uid="uid://4y3cttnm2ro5" path="res://InteractableObjects/BlenderModels/WeirdFireplace.blend" id="1_88nhu"]
+[ext_resource type="Script" uid="uid://fnti2o6gw0bm" path="res://InteractableObjects/Scripts/weird_fireplace.gd" id="2_spyuw"]
+[ext_resource type="PackedScene" uid="uid://nqgan1mxomhb" path="res://InteractableObjects/Objects/lightbulb.tscn" id="3_d7hqg"]
+[ext_resource type="Script" uid="uid://dt67bl4dq7xod" path="res://InteractableObjects/Interactable.gd" id="4_wmcwo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_88nhu"]
+size = Vector3(1.72363, 2.54321, 3.21289)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_spyuw"]
+size = Vector3(1, 2.39453, 3.16309)
+
+[node name="WeirdFireplace" instance=ExtResource("1_88nhu")]
+script = ExtResource("2_spyuw")
+
+[node name="Interactable" type="Node" parent="." index="0"]
+script = ExtResource("4_wmcwo")
+metadata/_custom_type_script = "uid://dt67bl4dq7xod"
+
+[node name="Lightbulb" parent="." index="3" instance=ExtResource("3_d7hqg")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0.5616, 0.400709)
+
+[node name="Marker3D" type="Marker3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486568, -0.404273)
+
+[node name="Area3D" type="Area3D" parent="." index="5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.134744, 0)
+shape = SubResource("BoxShape3D_88nhu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.152589, 0)
+shape = SubResource("BoxShape3D_spyuw")

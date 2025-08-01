@@ -12,7 +12,8 @@ func interaction(player : CharacterBody3D):
 		particle.set_emitting(true)
 		particle1.set_emitting(true)
 		heldResistor.disable()
-		#heldResistor.setPosition(resistor_marker.position)
+		
+		SignalBussin.emit_signal("increaseCompletedPuzzle")
 
 
 func _process(delta: float) -> void:

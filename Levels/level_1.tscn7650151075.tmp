@@ -1,16 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxoxkpsyiiw6i"]
+[gd_scene load_steps=14 format=3 uid="uid://cxoxkpsyiiw6i"]
 
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="1_f4pg2"]
 [ext_resource type="Script" uid="uid://5ptycblx2vct" path="res://Timer/timer_label.gd" id="1_n0qsc"]
 [ext_resource type="PackedScene" uid="uid://26fc574m2bic" path="res://Player/player.tscn" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://bmf34kuoll5m2" path="res://InteractableObjects/Objects/resistor_holder.tscn" id="5_rfktq"]
+[ext_resource type="PackedScene" uid="uid://bvsdscjarstei" path="res://InteractableObjects/Objects/resistor.tscn" id="5_syshm"]
 [ext_resource type="PackedScene" uid="uid://bgfrcdfsu1gi5" path="res://InteractableObjects/BlenderModels/Wall.blend" id="6_rfktq"]
 [ext_resource type="PackedScene" uid="uid://nqgan1mxomhb" path="res://InteractableObjects/Objects/lightbulb.tscn" id="7_0urlm"]
 [ext_resource type="PackedScene" uid="uid://o5ilu622v3pt" path="res://InteractableObjects/Objects/power.tscn" id="8_77x7w"]
 [ext_resource type="PackedScene" uid="uid://mcm4sp4henn2" path="res://InteractableObjects/Objects/time_machine.tscn" id="10_62b6n"]
 [ext_resource type="PackedScene" uid="uid://dmqyoxciba74u" path="res://InteractableObjects/Objects/weird_fireplace.tscn" id="10_f4pg2"]
-[ext_resource type="PackedScene" uid="uid://1ay26hbrrw1w" path="res://InteractableObjects/BlenderModels/Resistor.blend" id="10_rs4xw"]
-[ext_resource type="PackedScene" uid="uid://ce3ux77284njb" path="res://InteractableObjects/BlenderModels/Wall2.blend" id="11_62b6n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf6l5"]
 size = Vector3(18, 0.5, 6)
@@ -28,6 +27,7 @@ puzzlesToComplete = 2
 
 [node name="TimerLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+visible = false
 texture_filter = 0
 script = ExtResource("1_n0qsc")
 waitTime = 5.0
@@ -148,8 +148,11 @@ spot_range = 10.0
 spot_angle = 39.6629
 spot_angle_attenuation = 0.19615
 
+[node name="Resistor" parent="Box" instance=ExtResource("5_syshm")]
+transform = Transform3D(-4.37114e-08, -0.999998, 0, 1, -4.37113e-08, 0, 0, 0, 1, -2.90904, 1.64633, 8.45309)
+
 [node name="ResistorHolder" parent="Box" instance=ExtResource("5_rfktq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 7.699)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 6.64603, 0.656, 6.69874)
 
 [node name="ParticalCollision" type="Node3D" parent="Box/ResistorHolder"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.656, -8)
@@ -175,7 +178,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103161, 2.49463, 9.01464)
 size = Vector3(18.033, 6.98926, 0.376465)
 
 [node name="TestBulb" parent="Box" instance=ExtResource("7_0urlm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 8)
 
 [node name="LeverMachine1" parent="Box" instance=ExtResource("8_77x7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23079, 0, -5.54906)
@@ -190,10 +193,3 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.557
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 7.2465, 1.34318, -7.2465)
 
 [node name="TimeMachine" parent="Box" instance=ExtResource("10_62b6n")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
-
-[node name="ResistorModel" parent="Box" instance=ExtResource("10_rs4xw")]
-transform = Transform3D(0, 1, -2.98023e-08, 4.37114e-08, 2.98023e-08, 1, 1, 0, -4.37114e-08, -4.98605e-08, 1.67304, 7.72835)
-
-[node name="Wall2" parent="." instance=ExtResource("11_62b6n")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.41249e-07, 3, 6.6253)

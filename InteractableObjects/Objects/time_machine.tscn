@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://mcm4sp4henn2"]
+
+[ext_resource type="PackedScene" uid="uid://breievn11kk0q" path="res://InteractableObjects/BlenderModels/TimeMachine.blend" id="1_onu7f"]
+[ext_resource type="PackedScene" uid="uid://dqrtvlij0pgcc" path="res://InteractableObjects/BlenderModels/Lightbulb.blend" id="3_dgg5q"]
+[ext_resource type="Script" uid="uid://dt67bl4dq7xod" path="res://InteractableObjects/Interactable.gd" id="4_1ugmn"]
+[ext_resource type="PackedScene" uid="uid://dw6r3f1drnd1i" path="res://InteractableObjects/Objects/bulb_container.tscn" id="4_dgg5q"]
+
+[node name="TimeMachine" instance=ExtResource("1_onu7f")]
+
+[node name="Lightbulb" parent="." index="2" instance=ExtResource("3_dgg5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.672, -8)
+
+[node name="Lightbulb2" parent="." index="3" instance=ExtResource("3_dgg5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.672, 0)
+
+[node name="Interactable" type="Node" parent="." index="4"]
+script = ExtResource("4_1ugmn")
+metadata/_custom_type_script = "uid://dt67bl4dq7xod"
+
+[node name="bulbContainer" parent="." index="5" instance=ExtResource("4_dgg5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="bulbContainer2" parent="." index="6" instance=ExtResource("4_dgg5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)

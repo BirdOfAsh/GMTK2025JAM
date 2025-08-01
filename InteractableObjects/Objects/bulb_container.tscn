@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw6r3f1drnd1i"]
+
+[ext_resource type="Script" uid="uid://cagwctji7j6qu" path="res://InteractableObjects/Scripts/bulb_container.gd" id="1_1vxri"]
+[ext_resource type="Script" uid="uid://dt67bl4dq7xod" path="res://InteractableObjects/Interactable.gd" id="2_sa64n"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_57thq"]
+height = 1.57739
+radius = 0.85498
+
+[node name="bulbContainer" type="Node3D"]
+script = ExtResource("1_1vxri")
+
+[node name="Interactable" type="Node" parent="."]
+script = ExtResource("2_sa64n")
+metadata/_custom_type_script = "uid://dt67bl4dq7xod"
+
+[node name="bulbArea1" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bulbArea1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340942, 0)
+shape = SubResource("CylinderShape3D_57thq")
+
+[node name="BulbMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)

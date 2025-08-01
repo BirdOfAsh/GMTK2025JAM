@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://26fc574m2bic"]
+[gd_scene load_steps=4 format=3 uid="uid://26fc574m2bic"]
 
 [ext_resource type="Script" uid="uid://ddn0dd6vo543c" path="res://Player/player.gd" id="1_l8h54"]
 
@@ -6,12 +6,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l8h54"]
 size = Vector3(1, 1, 1.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8h54"]
-albedo_color = Color(1, 0.411765, 1, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_4ntmi"]
-material = SubResource("StandardMaterial3D_l8h54")
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_l8h54")
@@ -29,10 +23,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.135226, -1.005)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.259033)
 shape = SubResource("BoxShape3D_l8h54")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.508756, 0)
-mesh = SubResource("SphereMesh_4ntmi")
 
 [node name="HoldingMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.464493, -0.412111, -1.11619)

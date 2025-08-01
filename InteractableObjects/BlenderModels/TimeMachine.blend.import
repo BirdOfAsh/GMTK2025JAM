@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ddya0olm75osr"
-path="res://.godot/imported/TheMachine.blend-09f0376f3ea731288e7e5dfa383bbe66.scn"
+uid="uid://breievn11kk0q"
+path="res://.godot/imported/TimeMachine.blend-3c9b0c0a49975e1cbf8b02d115f1f3db.scn"
 
 [deps]
 
-source_file="res://InteractableObjects/BlenderModels/TheMachine.blend"
-dest_files=["res://.godot/imported/TheMachine.blend-09f0376f3ea731288e7e5dfa383bbe66.scn"]
+source_file="res://InteractableObjects/BlenderModels/TimeMachine.blend"
+dest_files=["res://.godot/imported/TimeMachine.blend-3c9b0c0a49975e1cbf8b02d115f1f3db.scn"]
 
 [params]
 
