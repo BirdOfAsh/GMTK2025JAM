@@ -1,22 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxoxkpsyiiw6i"]
+[gd_scene load_steps=15 format=3 uid="uid://cxoxkpsyiiw6i"]
 
 [ext_resource type="Script" uid="uid://5ptycblx2vct" path="res://Timer/timer_label.gd" id="1_n0qsc"]
 [ext_resource type="PackedScene" uid="uid://26fc574m2bic" path="res://Player/player.tscn" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://bx4wniecksstx" path="res://InteractableObjects/Objects/sphere_of_testing.tscn" id="3_3mhv4"]
+[ext_resource type="PackedScene" uid="uid://crt7jht55cbbb" path="res://world/floor.blend" id="5_62b6n"]
 [ext_resource type="PackedScene" uid="uid://bmf34kuoll5m2" path="res://InteractableObjects/Objects/resistor_holder.tscn" id="5_rfktq"]
 [ext_resource type="PackedScene" uid="uid://bvsdscjarstei" path="res://InteractableObjects/Objects/resistor.tscn" id="5_syshm"]
 [ext_resource type="PackedScene" uid="uid://bgfrcdfsu1gi5" path="res://InteractableObjects/BlenderModels/Wall.blend" id="6_rfktq"]
 [ext_resource type="PackedScene" uid="uid://nqgan1mxomhb" path="res://InteractableObjects/Objects/lightbulb.tscn" id="7_0urlm"]
 [ext_resource type="PackedScene" uid="uid://o5ilu622v3pt" path="res://InteractableObjects/Objects/power.tscn" id="8_77x7w"]
+[ext_resource type="PackedScene" uid="uid://bjmruqpo5nk0j" path="res://InteractableObjects/Objects/lever.tscn" id="9_f4pg2"]
 [ext_resource type="PackedScene" uid="uid://08ojfb1g7arn" path="res://InteractableObjects/Objects/the_machine.tscn" id="9_xoyoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf6l5"]
 size = Vector3(18, 0.5, 6)
 
-[sub_resource type="BoxMesh" id="BoxMesh_3mhv4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_rfktq"]
 size = Vector3(18, 0.2, 18)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rfktq"]
+[sub_resource type="BoxMesh" id="BoxMesh_3mhv4"]
 size = Vector3(18, 0.2, 18)
 
 [node name="Level1" type="Node3D"]
@@ -83,13 +85,13 @@ transform = Transform3D(7.54979e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, 7.
 transform = Transform3D(1, 1.98954e-13, -3.22945e-21, -1.98954e-13, 1, -4.86727e-13, 3.22935e-21, 4.86727e-13, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_rf6l5")
 
-[node name="Floor" type="MeshInstance3D" parent="Box"]
-mesh = SubResource("BoxMesh_3mhv4")
-skeleton = NodePath("")
+[node name="floor" parent="Box" instance=ExtResource("5_62b6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0432019, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Box/Floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Box/floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.38419e-07, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/Floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/floor/StaticBody3D"]
 shape = SubResource("BoxShape3D_rfktq")
 
 [node name="Ceiling" type="MeshInstance3D" parent="Box"]
@@ -124,6 +126,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 8)
 
 [node name="Power" parent="Box" instance=ExtResource("8_77x7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1.22392e-06)
+
+[node name="Lever" parent="Box" instance=ExtResource("9_f4pg2")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -8.71399, 1.89551, 5.59349)
 
 [node name="ParticalCollision" type="Node3D" parent="Box"]
 

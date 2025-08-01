@@ -23,8 +23,7 @@ window/size/always_on_top=true
 
 animation_library={
 &"blender/meshes/colors": true,
-&"blender/nodes/cameras": false,
-&"gltf/embedded_image_handling": 2
+&"blender/nodes/cameras": false
 }
 
 [input]
