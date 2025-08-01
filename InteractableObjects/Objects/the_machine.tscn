@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ddya0olm75osr" path="res://InteractableObjects/BlenderModels/TheMachine.blend" id="1_vnki1"]
 [ext_resource type="Script" uid="uid://beg3j20x6xejx" path="res://InteractableObjects/Scripts/the_machine.gd" id="2_ewivi"]
 [ext_resource type="Script" uid="uid://dt67bl4dq7xod" path="res://InteractableObjects/Interactable.gd" id="3_6db6l"]
+[ext_resource type="PackedScene" uid="uid://nqgan1mxomhb" path="res://InteractableObjects/Objects/lightbulb.tscn" id="4_6db6l"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ey44n"]
 height = 0.672852
@@ -45,5 +46,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.17361, -1.46738)
 [node name="Area3D" type="Area3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.21017, -1.50407)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-shape = SubResource("BoxShape3D_6db6l")
+[node name="StaticBody3D" type="StaticBody3D" parent="Collisions" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86975, -1.2483)
+shape = SubResource("BoxShape3D_ewivi")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Collisions" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.51864)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86975, -1.2483)
+shape = SubResource("BoxShape3D_ewivi")
+
+[node name="Lightbulb" parent="." index="6" instance=ExtResource("4_6db6l")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.000508785, 4.17249, -1.46134)
+
+[node name="Lightbulb2" parent="." index="7" instance=ExtResource("4_6db6l")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.00843261, 3.66659, -1.45867)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjmruqpo5nk0j"]
+
+[ext_resource type="PackedScene" uid="uid://12ajis3yy5ep" path="res://InteractableObjects/BlenderModels/Lever.blend" id="1_t7k2k"]
+[ext_resource type="Script" uid="uid://dt67bl4dq7xod" path="res://InteractableObjects/Interactable.gd" id="2_4w2vn"]
+[ext_resource type="Script" uid="uid://cy1xnuh12ty52" path="res://InteractableObjects/Scripts/lever.gd" id="2_g4qi2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4qi2"]
+size = Vector3(1.36816, 2.91211, 1.14063)
+
+[node name="Lever" instance=ExtResource("1_t7k2k")]
+script = ExtResource("2_g4qi2")
+
+[node name="Part Studio 1 - Part 1" parent="Skeleton3D" index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Part Studio 2 - Part 1" parent="Skeleton3D" index="1"]
+transform = Transform3D(0.1, 0, 0, 0, -0.000127041, 0.0999999, 0, -0.0999999, -0.000127041, 0.013524, 2.02397, 0.894765)
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(3.30318, 0, 0, 0, 2.41828, 0, 0, 0, 0.540442, 0.0378598, 0.078508, 0.317393)
+shape = SubResource("BoxShape3D_g4qi2")
+
+[node name="Interactable" type="Node" parent="." index="3"]
+script = ExtResource("2_4w2vn")
+metadata/_custom_type_script = "uid://dt67bl4dq7xod"
