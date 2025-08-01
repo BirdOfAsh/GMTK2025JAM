@@ -1,6 +1,4 @@
 [gd_scene load_steps=15 format=3 uid="uid://cxoxkpsyiiw6i"]
-
-[ext_resource type="Script" uid="uid://5ptycblx2vct" path="res://Timer/timer_label.gd" id="1_n0qsc"]
 [ext_resource type="PackedScene" uid="uid://26fc574m2bic" path="res://Player/player.tscn" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://bx4wniecksstx" path="res://InteractableObjects/Objects/sphere_of_testing.tscn" id="3_3mhv4"]
 [ext_resource type="PackedScene" uid="uid://crt7jht55cbbb" path="res://world/floor.blend" id="5_62b6n"]
@@ -22,17 +20,6 @@ size = Vector3(18, 0.2, 18)
 size = Vector3(18, 0.2, 18)
 
 [node name="Level1" type="Node3D"]
-
-[node name="TimerLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-visible = false
-texture_filter = 0
-script = ExtResource("1_n0qsc")
-waitTime = 5.0
-
-[node name="Timer" type="Timer" parent="TimerLabel"]
-wait_time = 5.0
-one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("2_dilhk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25032, 5)
@@ -152,7 +139,5 @@ size = Vector3(18.4008, 1.13403, 19.1348)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103161, 2.49463, 9.01464)
 size = Vector3(18.033, 6.98926, 0.376465)
 
-[node name="TheMachine" parent="." instance=ExtResource("9_xoyoh")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.37114e-08, 0, 0)
-
-[connection signal="timeout" from="TimerLabel/Timer" to="TimerLabel" method="_on_timer_timeout"]
+[node name="TheMachine" parent="Box" instance=ExtResource("9_xoyoh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
