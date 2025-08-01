@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxoxkpsyiiw6i"]
+[gd_scene load_steps=16 format=3 uid="uid://cxoxkpsyiiw6i"]
 
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="1_f4pg2"]
 [ext_resource type="Script" uid="uid://5ptycblx2vct" path="res://Timer/timer_label.gd" id="1_n0qsc"]
@@ -14,6 +14,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf6l5"]
 size = Vector3(18, 0.5, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_62b6n"]
+size = Vector3(0.5, 6, 18)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3mhv4"]
 size = Vector3(18, 0.2, 18)
@@ -83,6 +86,14 @@ transform = Transform3D(7.54979e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, 7.
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box/Wall4/StaticBody3D"]
 transform = Transform3D(1, 1.98954e-13, -3.22945e-21, -1.98954e-13, 1, -4.86727e-13, 3.22935e-21, 4.86727e-13, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_rf6l5")
+
+[node name="WallGap" parent="Box" instance=ExtResource("11_62b6n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.41249e-07, 3, 6.6253)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box/WallGap"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/WallGap/StaticBody3D"]
+shape = SubResource("BoxShape3D_62b6n")
 
 [node name="Floor" type="MeshInstance3D" parent="Box"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0377955, 0)
@@ -194,6 +205,3 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 
 [node name="ResistorModel" parent="Box" instance=ExtResource("10_rs4xw")]
 transform = Transform3D(0, 1, -2.98023e-08, 4.37114e-08, 2.98023e-08, 1, 1, 0, -4.37114e-08, -4.98605e-08, 1.67304, 7.72835)
-
-[node name="Wall2" parent="." instance=ExtResource("11_62b6n")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.41249e-07, 3, 6.6253)

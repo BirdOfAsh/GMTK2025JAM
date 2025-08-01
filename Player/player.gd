@@ -60,14 +60,6 @@ func keyEPressed(event: InputEvent):
 		objectLookingAt.call("interact", self)
 
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	objectLookingAt = area.get_parent().find_child("Interactable")
-
-
-func _on_area_3d_area_exited(_area: Area3D) -> void:
-	objectLookingAt = null
-
-
 func pickup(object : Node3D) -> void:
 	if heldObject == null:
 		object.reparent(holdingMarker)
@@ -90,3 +82,15 @@ func lerpToMarker(delta : float):
 	if heldObject != null:
 		heldObject.global_position = lerp(heldObject.global_position, holdingMarker.global_position, 5 * delta)
 		heldObject.rotation_degrees = lerp(heldObject.rotation_degrees, Vector3.ZERO, 5 * delta)
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.get_parent().has_method("enableShimmer"):
+		body.get_parent().enableShimmer()
+	objectLookingAt = body.get_parent().find_child("Interactable")
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body.get_parent().has_method("disableShimmer"):
+		body.get_parent().disableShimmer()
+	objectLookingAt = null

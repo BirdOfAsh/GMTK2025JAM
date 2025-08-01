@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://chu40hjj8mqnq"]
+
+[ext_resource type="Shader" uid="uid://drqrtgc4ugig2" path="res://shaders/glowShader.gdshader" id="1_mbhjl"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_mbhjl")
+shader_parameter/shine_color = Color(1, 1, 0.145098, 0.294118)
+shader_parameter/cycle_interval = 5.0
+shader_parameter/shine_speed = 1.0
+shader_parameter/shine_width = 100.0
+shader_parameter/shine_angle_x = 45.0
+shader_parameter/shine_angle_y = 0.0
+shader_parameter/shine_angle_z = 0.0
