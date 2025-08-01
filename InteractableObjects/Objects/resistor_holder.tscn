@@ -1,11 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmf34kuoll5m2"]
+[gd_scene load_steps=9 format=3 uid="uid://bmf34kuoll5m2"]
 
 [ext_resource type="Script" uid="uid://dyjqtmadg3bf1" path="res://InteractableObjects/Scripts/resistor_holder.gd" id="1_ix4h5"]
 [ext_resource type="PackedScene" uid="uid://68x0bdce1ya" path="res://InteractableObjects/Interactable.tscn" id="3_fte8w"]
 [ext_resource type="PackedScene" uid="uid://casnmatboa7wx" path="res://InteractableObjects/BlenderModels/ResistorContainer.blend" id="3_ix4h5"]
+[ext_resource type="Texture2D" uid="uid://dkjusta6pgoxr" path="res://Sprites/lightning.png" id="4_fte8w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ix4h5"]
 size = Vector3(5.11816, 2.32422, 1.56738)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pyvlx"]
+emission_shape = 1
+emission_sphere_radius = 0.25
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, -1, 0)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62b6n"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.316512, 0.92723, 0.912963, 1)
+albedo_texture = ExtResource("4_fte8w")
+emission_enabled = true
+emission = Color(0, 0.754295, 0.766264, 1)
+emission_energy_multiplier = 20.0
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_spxws"]
+material = SubResource("StandardMaterial3D_62b6n")
+size = Vector2(0.1, 0.1)
 
 [node name="ResistorHolder" type="Node3D"]
 script = ExtResource("1_ix4h5")
@@ -23,3 +49,23 @@ shape = SubResource("BoxShape3D_ix4h5")
 
 [node name="ResistorMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02231, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23578, 1.1417, 0.0394211)
+emitting = false
+amount = 5
+explosiveness = 1.0
+randomness = 0.5
+draw_order = 1
+process_material = SubResource("ParticleProcessMaterial_pyvlx")
+draw_pass_1 = SubResource("QuadMesh_spxws")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20158, 1.1417, 0.0394211)
+emitting = false
+amount = 5
+explosiveness = 1.0
+randomness = 0.5
+draw_order = 1
+process_material = SubResource("ParticleProcessMaterial_pyvlx")
+draw_pass_1 = SubResource("QuadMesh_spxws")

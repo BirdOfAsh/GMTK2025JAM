@@ -125,6 +125,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 8)
 [node name="Power" parent="Box" instance=ExtResource("8_77x7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1.22392e-06)
 
+[node name="ParticalCollision" type="Node3D" parent="Box"]
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Box/ParticalCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00288212, 0.157715, 8.16429)
+size = Vector3(4.68918, 2.31543, 1.64307)
+
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="Box/ParticalCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84382, 0.507813, 8.16429)
+size = Vector3(0.995781, 3.01563, 1.64307)
+
+[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="Box/ParticalCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84516, 0.507813, 8.16429)
+size = Vector3(0.995781, 3.01563, 1.64307)
+
+[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="Box/ParticalCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0471039, -0.432983, 0.0615234)
+size = Vector3(18.4008, 1.13403, 19.1348)
+
+[node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="Box/ParticalCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103161, 2.49463, 9.01464)
+size = Vector3(18.033, 6.98926, 0.376465)
+
 [node name="TheMachine" parent="." instance=ExtResource("9_xoyoh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.37114e-08, 0, 0)
 
