@@ -6,7 +6,7 @@ var completedPuzzles : int = 0
 
 var levelsDict : Dictionary[int, String] = {
 	0 : "res://Levels/level_1.tscn",
-	1 : "res://Player/player.tscn"
+	1 : "res://Levels/level_2.tscn"
 }
 
 func _ready() -> void:
@@ -29,9 +29,9 @@ func decreasePuzzleCount():
 
 func progressToNextLoop():
 	for level in levelsDict:
-			if levelsDict[level] == get_tree().current_scene.scene_file_path:
-				get_tree().change_scene_to_file(levelsDict[level + 1])
-				break
+		if levelsDict[level] == get_tree().current_scene.scene_file_path:
+			get_tree().change_scene_to_file(levelsDict[level + 1])
+			break
 
 
 func resetLoop():

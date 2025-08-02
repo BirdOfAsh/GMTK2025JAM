@@ -8,7 +8,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_xjt7v"]
 size = Vector3(0.6, 0.8, 0.6)
 
-[node name="Lightbulb" type="Node3D"]
+[node name="Lightbulb" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+freeze = true
 script = ExtResource("1_m87ea")
 
 [node name="Lightbulb" parent="." instance=ExtResource("1_uo47t")]
@@ -18,14 +22,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("2_m87ea")
 metadata/_custom_type_script = "uid://dt67bl4dq7xod"
 
-[node name="Area3D" type="StaticBody3D" parent="."]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.376, 0)
-shape = SubResource("BoxShape3D_xjt7v")
-
 [node name="LightbulbOff" parent="." instance=ExtResource("4_xjt7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.376, 0)
+shape = SubResource("BoxShape3D_xjt7v")
