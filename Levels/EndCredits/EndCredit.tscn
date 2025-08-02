@@ -1,0 +1,171 @@
+[gd_scene load_steps=12 format=3 uid="uid://cq6oywggoi22y"]
+
+[ext_resource type="Script" uid="uid://dswbmpuyvqvbk" path="res://Levels/EndCredits/SceneChanger.gd" id="1_2fmcr"]
+[ext_resource type="AudioStream" uid="uid://dbmjep40eff48" path="res://Sound/Voices/Ending.wav" id="2_d00in"]
+[ext_resource type="Shader" uid="uid://b2naof7ljcn5e" path="res://Levels/MainMenu/mainMenuBackground.gdshader" id="2_dxsij"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6pvw"]
+shader = ExtResource("2_dxsij")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = 0.0
+shader_parameter/spin_speed = 20.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.160034, 0.477577, 0.684514, 1)
+shader_parameter/colour_2 = Color(0, 0, 0, 1)
+shader_parameter/colour_3 = Color(0, 0.307383, 0.573747, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/spin_amount = -0.535
+shader_parameter/pixel_filter = 700.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fmcr"]
+font_size = 111
+
+[sub_resource type="LabelSettings" id="LabelSettings_k3iw7"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_e4n53"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_bdqn1"]
+
+[sub_resource type="Animation" id="Animation_0st8l"]
+resource_name = "scroll"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, 641), Vector2(2, -830)]
+}
+
+[sub_resource type="Animation" id="Animation_tiqg5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 216)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mi8qh"]
+_data = {
+&"RESET": SubResource("Animation_tiqg5"),
+&"scroll": SubResource("Animation_0st8l")
+}
+
+[node name="EndCredit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2fmcr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_g6pvw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.498039)
+
+[node name="Closing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_d00in")
+autoplay = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 216.0
+offset_right = -1.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameTitle" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Time Loop"
+label_settings = SubResource("LabelSettings_2fmcr")
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Developers"
+label_settings = SubResource("LabelSettings_k3iw7")
+horizontal_alignment = 1
+
+[node name="Names" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Strongrabit - Parker
+BirdOfAsh - Phoenix
+TwoFaceNecromancer - Nathaniel"
+label_settings = SubResource("LabelSettings_e4n53")
+horizontal_alignment = 1
+
+[node name="Title2" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Voice & Narrative"
+label_settings = SubResource("LabelSettings_k3iw7")
+horizontal_alignment = 1
+
+[node name="Names2" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "ariyoujustcode - Ari"
+label_settings = SubResource("LabelSettings_e4n53")
+horizontal_alignment = 1
+
+[node name="Resources" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Resources"
+label_settings = SubResource("LabelSettings_e4n53")
+horizontal_alignment = 1
+
+[node name="SpecResources" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "https://godotshaders.com/author/miisannn/
+https://polyhaven.com/all?a=Amal%20Kumar
+https://godotshaders.com/author/grau/
+https://free3d.com/user/davidgagul2005
+https://godotshaders.com/author/rendoog/
+https://godotshaders.com/author/noobytube/
+Billy Ocean by Baby Jazz is licensed under a Attribution-NonCommercial-ShareAlike 3.0 International License."
+label_settings = SubResource("LabelSettings_bdqn1")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Control")
+libraries = {
+&"": SubResource("AnimationLibrary_mi8qh")
+}
+autoplay = "scroll"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
