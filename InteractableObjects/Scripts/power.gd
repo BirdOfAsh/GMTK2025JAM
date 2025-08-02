@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var collision: CollisionShape3D = $Area3D/CollisionShape3D
+@onready var collision: CollisionShape3D = $StaticBody3D/CollisionShape3D
 
 @onready var handle: MeshInstance3D = $Handle
 
