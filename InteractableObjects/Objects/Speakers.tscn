@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://u7fn1yunq7x8"]
+
+[ext_resource type="PackedScene" uid="uid://cc5jgd6gq0oqe" path="res://InteractableObjects/BlenderModels/Desk_speakers.glb" id="1_f3af1"]
+
+[sub_resource type="Animation" id="Animation_ls42m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f3af1"]
+resource_name = "playingSpeaker"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.02, 1.02, 1.02), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Desk_speakers:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.02, 1.02, 1.02), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_261ax"]
+_data = {
+&"RESET": SubResource("Animation_ls42m"),
+&"playingSpeaker": SubResource("Animation_f3af1")
+}
+
+[node name="Speakers" type="Node3D"]
+
+[node name="Desk_speakers" parent="." instance=ExtResource("1_f3af1")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_261ax")
+}

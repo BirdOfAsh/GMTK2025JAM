@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cxoxkpsyiiw6i"]
+[gd_scene load_steps=27 format=3 uid="uid://cxoxkpsyiiw6i"]
 
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="1_f4pg2"]
 [ext_resource type="Shader" uid="uid://dmifjv6gwkx2h" path="res://shaders/dithering.gdshader" id="1_rs4xw"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://v8fo762qcqec" path="res://InteractableObjects/Objects/light_fireplace.tscn" id="13_34erp"]
 [ext_resource type="Texture2D" uid="uid://dkjusta6pgoxr" path="res://Sprites/lightning.png" id="13_77l7m"]
 [ext_resource type="AudioStream" uid="uid://dcm7rwlkfjd7" path="res://Sound/Baby Jazz - Billy Ocean.mp3" id="13_lk57d"]
+[ext_resource type="PackedScene" uid="uid://u7fn1yunq7x8" path="res://InteractableObjects/Objects/Speakers.tscn" id="14_77l7m"]
 [ext_resource type="AudioStream" uid="uid://coj80mt7nicfx" path="res://Sound/Voices/Lightbulb 1.wav" id="15_k2bse"]
 [ext_resource type="AudioStream" uid="uid://b380aapm7bmwa" path="res://Sound/Voices/Lightbulb 2.wav" id="16_c7pbv"]
 
@@ -278,6 +279,20 @@ randomness = 0.5
 draw_order = 1
 process_material = SubResource("ParticleProcessMaterial_1rr3k")
 draw_pass_1 = SubResource("QuadMesh_w38ni")
+
+[node name="SpeakerMan" type="Node3D" parent="SubViewportContainer/SubViewport/Box"]
+
+[node name="Speakers" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("14_77l7m")]
+transform = Transform3D(-0.641637, 0, 0.767008, 0, 1, 0, -0.767008, 0, -0.641637, 8.09634, 4.24208, 5.9675)
+
+[node name="Speakers2" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("14_77l7m")]
+transform = Transform3D(-0.710849, 0, -0.703345, 0, 1, 0, 0.703345, 0, -0.710849, 8.29535, 4.24208, -8.24605)
+
+[node name="Speakers3" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("14_77l7m")]
+transform = Transform3D(0.622474, 0, 0.782641, 0, 1, 0, -0.782641, 0, 0.622474, -8.26881, 4.24208, 6.06255)
+
+[node name="Speakers4" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("14_77l7m")]
+transform = Transform3D(0.634987, 0, -0.772523, 0, 1, 0, 0.772523, 0, 0.634987, -8.15573, 4.24771, -8.35153)
 
 [node name="Sound" type="Node" parent="." node_paths=PackedStringArray("TimerLabel")]
 script = ExtResource("13_2hkqn")
