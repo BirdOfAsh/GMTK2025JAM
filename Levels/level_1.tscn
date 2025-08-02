@@ -232,13 +232,10 @@ TimerLabel = NodePath("../SubViewportContainer/SubViewport/TimerLabel")
 stream = ExtResource("13_lk57d")
 volume_db = -10.0
 autoplay = true
-bus = &"Music"
 parameters/looping = true
 
 [node name="CharacterTalk1" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("15_k2bse")
-bus = &"Voices"
 
 [node name="CharacterTalk2" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("16_c7pbv")
-bus = &"Voices"
