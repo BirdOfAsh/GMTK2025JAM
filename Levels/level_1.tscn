@@ -7,9 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bmf34kuoll5m2" path="res://InteractableObjects/Objects/resistor_holder.tscn" id="5_rfktq"]
 [ext_resource type="PackedScene" uid="uid://bgfrcdfsu1gi5" path="res://InteractableObjects/BlenderModels/Wall.blend" id="6_rfktq"]
 [ext_resource type="PackedScene" uid="uid://nqgan1mxomhb" path="res://InteractableObjects/Objects/lightbulb.tscn" id="7_0urlm"]
-[ext_resource type="PackedScene" uid="uid://o5ilu622v3pt" path="res://InteractableObjects/Objects/power.tscn" id="8_77x7w"]
 [ext_resource type="PackedScene" uid="uid://mcm4sp4henn2" path="res://InteractableObjects/Objects/time_machine.tscn" id="10_62b6n"]
-[ext_resource type="PackedScene" uid="uid://dmqyoxciba74u" path="res://InteractableObjects/Objects/weird_fireplace.tscn" id="10_f4pg2"]
 [ext_resource type="PackedScene" uid="uid://1ay26hbrrw1w" path="res://InteractableObjects/BlenderModels/Resistor.blend" id="10_rs4xw"]
 [ext_resource type="PackedScene" uid="uid://ce3ux77284njb" path="res://InteractableObjects/BlenderModels/Wall2.blend" id="11_62b6n"]
 [ext_resource type="Script" uid="uid://b7474xxvefl44" path="res://Sound/SoundMan.gd" id="13_2hkqn"]
@@ -206,19 +204,7 @@ size = Vector3(18.033, 6.98926, 0.376465)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 1)
 lightbulbActivatedReverse = true
 
-[node name="LeverMachine1" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("8_77x7w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23079, 0, -5.54906)
-
-[node name="LeverMachine2" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("8_77x7w")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -8.03266, 0, -8.03111)
-
-[node name="LeverMachine3" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("8_77x7w")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.55718, 0, -8.24552)
-
-[node name="WeirdFireplace" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("10_f4pg2")]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 7.2465, 1.34318, -7.2465)
-
-[node name="TimeMachine" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("10_62b6n")]
+[node name="TimeMachine" parent="Box" instance=ExtResource("10_62b6n")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
 
 [node name="ResistorModel" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("10_rs4xw")]
@@ -242,3 +228,8 @@ bus = &"Voices"
 [node name="CharacterTalk2" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("16_c7pbv")
 bus = &"Voices"
+[node name="Screen" parent="Box" instance=ExtResource("12_rs4xw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.287236, 3.01775, -8.75)
+
+[node name="Lightplace" parent="Box" instance=ExtResource("11_rs4xw")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 7.07107, 1.27758, -7.07107)

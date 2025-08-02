@@ -10,6 +10,7 @@ func interaction(player : CharacterBody3D):
 		player.call("place", self)
 		heldBulb.switchBulbMesh(false)
 		
+		heldBulb.disable()
 		SignalBussin.emit_signal("increaseCompletedPuzzle")
 
 
