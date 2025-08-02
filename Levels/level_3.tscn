@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dsexc125hp7fv"]
+[gd_scene load_steps=35 format=3 uid="uid://dsexc125hp7fv"]
 
 [ext_resource type="Shader" uid="uid://dmifjv6gwkx2h" path="res://shaders/dithering.gdshader" id="1_5wr1k"]
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="2_wtqdv"]
@@ -17,8 +17,15 @@
 [ext_resource type="AudioStream" uid="uid://dcm7rwlkfjd7" path="res://Sound/Baby Jazz - Billy Ocean.mp3" id="14_0cy58"]
 [ext_resource type="Script" uid="uid://dpvekw5breb3v" path="res://InteractableObjects/PowerManager.gd" id="14_1yi2b"]
 [ext_resource type="PackedScene" uid="uid://u7fn1yunq7x8" path="res://InteractableObjects/Objects/Speakers.tscn" id="15_462h2"]
+[ext_resource type="PackedScene" uid="uid://bt8wlt5r70obw" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong2.blend" id="16_qy0u1"]
 [ext_resource type="AudioStream" uid="uid://bahds0flfvslo" path="res://Sound/Voices/Levers 1.wav" id="16_wtqdv"]
+[ext_resource type="PackedScene" uid="uid://gn4xnt2gpwlu" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong3.blend" id="17_n33ao"]
 [ext_resource type="AudioStream" uid="uid://bwjjbdq0yh2y8" path="res://Sound/Voices/Levers 2.wav" id="17_wtqdv"]
+[ext_resource type="PackedScene" uid="uid://yt2ali884ws6" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong.blend" id="18_7fyyg"]
+[ext_resource type="PackedScene" uid="uid://d03o1xmtd4hmd" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeShort.blend" id="19_0cy58"]
+[ext_resource type="PackedScene" uid="uid://cs6rjug7ovrc1" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeShort2.blend" id="20_g7xwt"]
+[ext_resource type="PackedScene" uid="uid://b21lbhy1gbbtv" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeShort3.blend" id="21_dg4kv"]
+[ext_resource type="PackedScene" uid="uid://bvqrw5awdwbxd" path="res://InteractableObjects/BlenderModels/Screen.blend" id="22_b0uqu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7g2g1"]
 shader = ExtResource("1_5wr1k")
@@ -290,6 +297,121 @@ transform = Transform3D(0.622474, 0, 0.782641, 0, 1, 0, -0.782641, 0, 0.622474, 
 
 [node name="Speakers4" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_462h2")]
 transform = Transform3D(0.634987, 0, -0.772523, 0, 1, 0, 0.772523, 0, 0.634987, -8.15573, 4.24771, -8.35153)
+
+[node name="Pipes" type="Node3D" parent="SubViewportContainer/SubViewport/Box"]
+
+[node name="StrightPipeLong2" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("16_qy0u1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.585, 2.91377, 2.05174)
+
+[node name="StrightPipeLong3" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("17_n33ao")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.585, 3.91377, 1.05174)
+
+[node name="StrightPipeLong6" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("17_n33ao")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.585, 1.91377, 5.05174)
+
+[node name="StrightPipeLong7" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("17_n33ao")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.585, 1.91377, 7.05174)
+
+[node name="StrightPipeLong" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("18_7fyyg")]
+transform = Transform3D(-4.37114e-08, 0, 1, -1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -1, 0, -8.585, 1.91377, 3.05174)
+
+[node name="StrightPipeLong5" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("18_7fyyg")]
+transform = Transform3D(-4.37114e-08, 0, 1, -1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -1, 0, -8.585, 1.91377, 3.05174)
+
+[node name="StrightPipeShort" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("19_0cy58")]
+transform = Transform3D(-5.96046e-08, 0, -1, 8.74228e-08, -1, 1.33227e-15, -1, -8.74228e-08, 5.96046e-08, -8.585, 1.314, 2.052)
+
+[node name="StrightPipeShort2" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("20_g7xwt")]
+transform = Transform3D(-4.37114e-08, 0, 1, -1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -1, 0, -8.585, 3.914, -0.448)
+
+[node name="StrightPipeLong4" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("17_n33ao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.585, 4.91377, -0.94826)
+
+[node name="StrightPipeShort3" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("19_0cy58")]
+transform = Transform3D(4.37114e-08, 3.82137e-15, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, -4.37114e-08, -8.585, 3.414, -0.948)
+
+[node name="StrightPipeLong8" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("16_qy0u1")]
+transform = Transform3D(0, 0, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, 0, -8.585, 2.91377, -1.94826)
+
+[node name="StrightPipeLong9" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("16_qy0u1")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -8.585, 3.91377, -2.94826)
+
+[node name="StrightPipeLong10" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("16_qy0u1")]
+transform = Transform3D(0, 0, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, 0, -8.585, 1.91377, -2.94826)
+
+[node name="StrightPipeLong11" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("16_qy0u1")]
+transform = Transform3D(0, 0, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, 0, -8.585, 0.913773, -3.94826)
+
+[node name="StrightPipeShort4" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("21_dg4kv")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -8.585, 0.414, -4.948)
+
+[node name="StrightPipeShort5" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("19_0cy58")]
+transform = Transform3D(0, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, -8.585, 4.914, -3.448)
+
+[node name="StrightPipeShort6" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("21_dg4kv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.585, 5.414, -3.948)
+
+[node name="Pipes2" type="Node3D" parent="SubViewportContainer/SubViewport/Box"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 17.189, 0, 3.04914e-06)
+
+[node name="StrightPipeLong2" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("16_qy0u1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.585, 2.91377, 2.05174)
+
+[node name="StrightPipeLong3" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("17_n33ao")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.585, 3.91377, 1.05174)
+
+[node name="StrightPipeLong6" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("17_n33ao")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.585, 1.91377, 5.05174)
+
+[node name="StrightPipeLong7" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("17_n33ao")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.585, 1.91377, 7.05174)
+
+[node name="StrightPipeLong" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("18_7fyyg")]
+transform = Transform3D(-4.37114e-08, 0, 1, -1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -1, 0, -8.585, 1.91377, 3.05174)
+
+[node name="StrightPipeLong5" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("18_7fyyg")]
+transform = Transform3D(-4.37114e-08, 0, 1, -1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -1, 0, -8.585, 1.91377, 3.05174)
+
+[node name="StrightPipeShort" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("19_0cy58")]
+transform = Transform3D(-5.96046e-08, 0, -1, 8.74228e-08, -1, 1.33227e-15, -1, -8.74228e-08, 5.96046e-08, -8.585, 1.314, 2.052)
+
+[node name="StrightPipeShort2" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("20_g7xwt")]
+transform = Transform3D(-4.37114e-08, 0, 1, -1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -1, 0, -8.585, 3.914, -0.448)
+
+[node name="StrightPipeLong4" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("17_n33ao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.585, 4.91377, -0.94826)
+
+[node name="StrightPipeShort3" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("19_0cy58")]
+transform = Transform3D(4.37114e-08, 3.82137e-15, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, -4.37114e-08, -8.585, 3.414, -0.948)
+
+[node name="StrightPipeLong8" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("16_qy0u1")]
+transform = Transform3D(0, 0, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, 0, -8.585, 2.91377, -1.94826)
+
+[node name="StrightPipeLong9" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("16_qy0u1")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -8.585, 3.91377, -2.94826)
+
+[node name="StrightPipeLong10" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("16_qy0u1")]
+transform = Transform3D(0, 0, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, 0, -8.585, 1.91377, -2.94826)
+
+[node name="StrightPipeLong11" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("16_qy0u1")]
+transform = Transform3D(0, 0, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, 0, -8.585, 0.913773, -3.94826)
+
+[node name="StrightPipeShort4" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("21_dg4kv")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -8.585, 0.414, -4.948)
+
+[node name="StrightPipeShort5" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("19_0cy58")]
+transform = Transform3D(0, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, -8.585, 4.914, -3.448)
+
+[node name="StrightPipeShort6" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("21_dg4kv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.585, 5.414, -3.948)
+
+[node name="Screen" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("22_b0uqu")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 0.0630013, 4, -8.75)
+
+[node name="TimerLabel" parent="SubViewportContainer/SubViewport/Box/Screen" instance=ExtResource("3_1yi2b")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 0.139294, 0.0149102, -0.0629974)
+font_size = 126
+waitTime = 60.0
 
 [node name="Sound" type="Node" parent="." node_paths=PackedStringArray("TimerLabel")]
 script = ExtResource("13_7fyyg")

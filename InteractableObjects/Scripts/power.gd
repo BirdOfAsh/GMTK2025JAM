@@ -17,11 +17,12 @@ func _ready() -> void:
 	powerManager = self.get_parent().find_child("PowerManager")
 
 func interaction(_player : CharacterBody3D):
-	animation_player.play("Cube_005Action")
-	part1.emitting = false
-	part2.emitting = false
-	powerManager.leverFlicked()
-	disable()
+	if powerManager != null:
+		animation_player.play("Cube_005Action")
+		part1.emitting = false
+		part2.emitting = false
+		powerManager.leverFlicked()
+		disable()
 
 
 func disable():
@@ -29,7 +30,8 @@ func disable():
 
 
 func enableShimmer():
-	handle.material_overlay = shimmer
+	if powerManager != null:
+		handle.material_overlay = shimmer
 
 
 func disableShimmer():

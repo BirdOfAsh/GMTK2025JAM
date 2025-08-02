@@ -17,8 +17,8 @@ var heldObject : Node3D
 
 
 func _ready() -> void:
-	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	pass
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#pass
 
 
 func _process(delta: float) -> void:

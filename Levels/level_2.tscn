@@ -1,5 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://itgc8pmf81bq"]
-
+[gd_scene load_steps=34 format=3 uid="uid://itgc8pmf81bq"]
 
 [ext_resource type="Shader" uid="uid://dmifjv6gwkx2h" path="res://shaders/dithering.gdshader" id="1_1soli"]
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="2_4pbjs"]
@@ -17,8 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dkjusta6pgoxr" path="res://Sprites/lightning.png" id="13_0ttnk"]
 [ext_resource type="PackedScene" uid="uid://gn4xnt2gpwlu" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong3.blend" id="13_knkse"]
 [ext_resource type="Script" uid="uid://b7474xxvefl44" path="res://Sound/SoundMan.gd" id="13_w6yvm"]
-[ext_resource type="PackedScene" uid="uid://yt2ali884ws6" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong.blend" id="14_7g2g1"]
 [ext_resource type="PackedScene" uid="uid://u7fn1yunq7x8" path="res://InteractableObjects/Objects/Speakers.tscn" id="14_0ttnk"]
+[ext_resource type="PackedScene" uid="uid://yt2ali884ws6" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong.blend" id="14_7g2g1"]
 [ext_resource type="AudioStream" uid="uid://dcm7rwlkfjd7" path="res://Sound/Baby Jazz - Billy Ocean.mp3" id="14_jcvcn"]
 [ext_resource type="AudioStream" uid="uid://b21c6twffqml" path="res://Sound/Voices/Resistor 1.wav" id="15_0ttnk"]
 [ext_resource type="PackedScene" uid="uid://d03o1xmtd4hmd" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeShort.blend" id="15_fll1h"]
