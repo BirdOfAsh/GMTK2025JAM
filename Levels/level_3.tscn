@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dsexc125hp7fv"]
+[gd_scene load_steps=28 format=3 uid="uid://dsexc125hp7fv"]
 
 [ext_resource type="Shader" uid="uid://dmifjv6gwkx2h" path="res://shaders/dithering.gdshader" id="1_5wr1k"]
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="2_wtqdv"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dkjusta6pgoxr" path="res://Sprites/lightning.png" id="13_wtqdv"]
 [ext_resource type="AudioStream" uid="uid://dcm7rwlkfjd7" path="res://Sound/Baby Jazz - Billy Ocean.mp3" id="14_0cy58"]
 [ext_resource type="Script" uid="uid://dpvekw5breb3v" path="res://InteractableObjects/PowerManager.gd" id="14_1yi2b"]
+[ext_resource type="PackedScene" uid="uid://u7fn1yunq7x8" path="res://InteractableObjects/Objects/Speakers.tscn" id="15_462h2"]
 [ext_resource type="AudioStream" uid="uid://bahds0flfvslo" path="res://Sound/Voices/Levers 1.wav" id="16_wtqdv"]
 [ext_resource type="AudioStream" uid="uid://bwjjbdq0yh2y8" path="res://Sound/Voices/Levers 2.wav" id="17_wtqdv"]
 
@@ -63,7 +64,7 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_wtqdv")
 size = Vector2(0.1, 0.1)
 
-[node name="Level2" type="Node3D"]
+[node name="Level3" type="Node3D"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_7g2g1")
@@ -275,6 +276,20 @@ draw_pass_1 = SubResource("QuadMesh_462h2")
 
 [node name="PowerManager" type="Node" parent="SubViewportContainer/SubViewport/Box"]
 script = ExtResource("14_1yi2b")
+
+[node name="SpeakerMan" type="Node3D" parent="SubViewportContainer/SubViewport/Box"]
+
+[node name="Speakers" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_462h2")]
+transform = Transform3D(-0.641637, 0, 0.767008, 0, 1, 0, -0.767008, 0, -0.641637, 8.09634, 4.24208, 5.9675)
+
+[node name="Speakers2" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_462h2")]
+transform = Transform3D(-0.710849, 0, -0.703345, 0, 1, 0, 0.703345, 0, -0.710849, 8.29535, 4.24208, -8.24605)
+
+[node name="Speakers3" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_462h2")]
+transform = Transform3D(0.622474, 0, 0.782641, 0, 1, 0, -0.782641, 0, 0.622474, -8.26881, 4.24208, 6.06255)
+
+[node name="Speakers4" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_462h2")]
+transform = Transform3D(0.634987, 0, -0.772523, 0, 1, 0, 0.772523, 0, 0.634987, -8.15573, 4.24771, -8.35153)
 
 [node name="Sound" type="Node" parent="." node_paths=PackedStringArray("TimerLabel")]
 script = ExtResource("13_7fyyg")
