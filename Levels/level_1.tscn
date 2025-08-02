@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cxoxkpsyiiw6i"]
 
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="1_f4pg2"]
-[ext_resource type="Script" uid="uid://5ptycblx2vct" path="res://Timer/timer_label.gd" id="1_n0qsc"]
+[ext_resource type="PackedScene" uid="uid://bxm3niqugqj5j" path="res://Timer/timer_label.tscn" id="2_62b6n"]
 [ext_resource type="PackedScene" uid="uid://26fc574m2bic" path="res://Player/player.tscn" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://bmf34kuoll5m2" path="res://InteractableObjects/Objects/resistor_holder.tscn" id="5_rfktq"]
 [ext_resource type="PackedScene" uid="uid://bgfrcdfsu1gi5" path="res://InteractableObjects/BlenderModels/Wall.blend" id="6_rfktq"]
@@ -29,15 +29,10 @@ size = Vector3(18, 0.2, 18)
 [node name="LevelManager" parent="." instance=ExtResource("1_f4pg2")]
 puzzlesToComplete = 2
 
-[node name="TimerLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-texture_filter = 0
-script = ExtResource("1_n0qsc")
-waitTime = 5.0
-
-[node name="Timer" type="Timer" parent="TimerLabel"]
-wait_time = 5.0
-one_shot = true
+[node name="TimerLabel" parent="." instance=ExtResource("2_62b6n")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.42725e-07, 5.01491, 6.35191)
+font_size = 126
+waitTime = 60.0
 
 [node name="Player" parent="." instance=ExtResource("2_dilhk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25032, 5)

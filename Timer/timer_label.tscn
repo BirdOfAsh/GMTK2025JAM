@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxm3niqugqj5j"]
+
+[ext_resource type="Script" uid="uid://5ptycblx2vct" path="res://Timer/timer_label.gd" id="1_1rtu0"]
+
+[node name="TimerLabel" type="Label3D"]
+texture_filter = 0
+text = "this is not skibidi"
+script = ExtResource("1_1rtu0")
+waitTime = 5.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

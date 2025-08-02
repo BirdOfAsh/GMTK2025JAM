@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var collision: CollisionShape3D = $StaticBody3D/CollisionShape3D
+@onready var staticBody: StaticBody3D = $StaticBody3D
 
 @onready var handle: MeshInstance3D = $Handle
 
@@ -14,7 +14,7 @@ func interaction(_player : CharacterBody3D):
 
 
 func disable():
-	collision.disabled = true
+	staticBody.set_collision_layer_value(2, false)
 
 
 func enableShimmer():
