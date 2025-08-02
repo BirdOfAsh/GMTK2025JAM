@@ -239,4 +239,3 @@ stream = ExtResource("15_k2bse")
 
 [node name="CharacterTalk2" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("16_c7pbv")
-bus = &"Voices"
