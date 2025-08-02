@@ -6,7 +6,8 @@ var completedPuzzles : int = 0
 
 var levelsDict : Dictionary[int, String] = {
 	0 : "res://Levels/level_1.tscn",
-	1 : "res://Player/player.tscn"
+	1 : "res://Levels/level_2.tscn",
+	2 : "res://Levels/EndCredits/EndCredit.tscn"
 }
 
 func _ready() -> void:

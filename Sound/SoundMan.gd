@@ -12,7 +12,7 @@ func _ready() -> void:
 	CharacterTalk1 = self.get_child(1)
 	CharacterTalk2 = self.get_child(2)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Music.playing == false:
 		#Start music from begining
 		Music.play(0.0)

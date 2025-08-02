@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cxoxkpsyiiw6i"]
+[gd_scene load_steps=21 format=3 uid="uid://cxoxkpsyiiw6i"]
 
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="1_f4pg2"]
 [ext_resource type="Shader" uid="uid://dmifjv6gwkx2h" path="res://shaders/dithering.gdshader" id="1_rs4xw"]
@@ -7,12 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://bmf34kuoll5m2" path="res://InteractableObjects/Objects/resistor_holder.tscn" id="5_rfktq"]
 [ext_resource type="PackedScene" uid="uid://bgfrcdfsu1gi5" path="res://InteractableObjects/BlenderModels/Wall.blend" id="6_rfktq"]
 [ext_resource type="PackedScene" uid="uid://nqgan1mxomhb" path="res://InteractableObjects/Objects/lightbulb.tscn" id="7_0urlm"]
-[ext_resource type="PackedScene" uid="uid://o5ilu622v3pt" path="res://InteractableObjects/Objects/power.tscn" id="8_77x7w"]
 [ext_resource type="PackedScene" uid="uid://mcm4sp4henn2" path="res://InteractableObjects/Objects/time_machine.tscn" id="10_62b6n"]
-[ext_resource type="PackedScene" uid="uid://dmqyoxciba74u" path="res://InteractableObjects/Objects/weird_fireplace.tscn" id="10_f4pg2"]
 [ext_resource type="PackedScene" uid="uid://1ay26hbrrw1w" path="res://InteractableObjects/BlenderModels/Resistor.blend" id="10_rs4xw"]
 [ext_resource type="PackedScene" uid="uid://ce3ux77284njb" path="res://InteractableObjects/BlenderModels/Wall2.blend" id="11_62b6n"]
 [ext_resource type="Script" uid="uid://b7474xxvefl44" path="res://Sound/SoundMan.gd" id="13_2hkqn"]
+[ext_resource type="PackedScene" uid="uid://v8fo762qcqec" path="res://InteractableObjects/Objects/light_fireplace.tscn" id="13_34erp"]
 [ext_resource type="AudioStream" uid="uid://dcm7rwlkfjd7" path="res://Sound/Baby Jazz - Billy Ocean.mp3" id="13_lk57d"]
 [ext_resource type="AudioStream" uid="uid://coj80mt7nicfx" path="res://Sound/Voices/Lightbulb 1.wav" id="15_k2bse"]
 [ext_resource type="AudioStream" uid="uid://b380aapm7bmwa" path="res://Sound/Voices/Lightbulb 2.wav" id="16_c7pbv"]
@@ -132,55 +131,20 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Box/Ceiling/StaticBody3D"]
 shape = SubResource("BoxShape3D_rfktq")
 
-[node name="Lightbulb" parent="SubViewportContainer/SubViewport/Box/Ceiling" instance=ExtResource("7_0urlm")]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 4, 0, 0)
+[node name="TimeMachine" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("10_62b6n")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Box/Ceiling/Lightbulb"]
-transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 4.26728e-08, 0.511881, -2.17518e-07)
-light_color = Color(1, 1, 0.27451, 1)
-light_energy = 3.2
-spot_range = 10.0
-spot_angle = 91.76
-spot_angle_attenuation = 0.19615
+[node name="ResistorModel" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("10_rs4xw")]
+transform = Transform3D(0, 1, -2.98023e-08, 4.37114e-08, 2.98023e-08, 1, 1, 0, -4.37114e-08, -4.98605e-08, 1.67304, 7.72835)
 
-[node name="Lightbulb2" parent="SubViewportContainer/SubViewport/Box/Ceiling" instance=ExtResource("7_0urlm")]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -4.41394, 0, 0)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Box/Ceiling/Lightbulb2"]
-transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 4.26728e-08, 0.511881, -2.17518e-07)
-light_color = Color(1, 1, 0.27451, 1)
-light_energy = 3.2
-spot_range = 10.0
-spot_angle = 39.6629
-spot_angle_attenuation = 0.19615
-
-[node name="Lightbulb3" parent="SubViewportContainer/SubViewport/Box/Ceiling" instance=ExtResource("7_0urlm")]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -0.918801, 0, 4.49453)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Box/Ceiling/Lightbulb3"]
-transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 4.26728e-08, 0.511881, -2.17518e-07)
-light_color = Color(1, 1, 0.27451, 1)
-light_energy = 3.2
-spot_range = 10.0
-spot_angle = 39.6629
-spot_angle_attenuation = 0.19615
-
-[node name="Lightbulb4" parent="SubViewportContainer/SubViewport/Box/Ceiling" instance=ExtResource("7_0urlm")]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -0.918801, 0, -4.15904)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Box/Ceiling/Lightbulb4"]
-transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 4.26728e-08, 0.511881, -2.17518e-07)
-light_color = Color(1, 1, 0.27451, 1)
-light_energy = 3.2
-spot_range = 10.0
-spot_angle = 39.6629
-spot_angle_attenuation = 0.19615
+[node name="lightFireplace" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("13_34erp")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 7.28998, 1.23318, -7.28998)
 
 [node name="ResistorHolder" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("5_rfktq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 7.699)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.681309, 7.7268)
 
 [node name="ParticalCollision" type="Node3D" parent="SubViewportContainer/SubViewport/Box/ResistorHolder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.656, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.681, -8.166)
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="SubViewportContainer/SubViewport/Box/ResistorHolder/ParticalCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00288212, 0.157715, 8.16429)
@@ -202,27 +166,9 @@ size = Vector3(18.4008, 1.13403, 19.1348)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103161, 2.49463, 9.01464)
 size = Vector3(18.033, 6.98926, 0.376465)
 
-[node name="TestBulb" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("7_0urlm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 1)
+[node name="Lightbulb" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("7_0urlm")]
+transform = Transform3D(-0.435677, -0.332712, 0.836354, 0.141235, 0.892397, 0.42858, -0.888953, 0.304845, -0.341806, -8.46438, -1.19209e-07, 6.1153)
 lightbulbActivatedReverse = true
-
-[node name="LeverMachine1" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("8_77x7w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23079, 0, -5.54906)
-
-[node name="LeverMachine2" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("8_77x7w")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -8.03266, 0, -8.03111)
-
-[node name="LeverMachine3" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("8_77x7w")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.55718, 0, -8.24552)
-
-[node name="WeirdFireplace" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("10_f4pg2")]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 7.2465, 1.34318, -7.2465)
-
-[node name="TimeMachine" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("10_62b6n")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
-
-[node name="ResistorModel" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("10_rs4xw")]
-transform = Transform3D(0, 1, -2.98023e-08, 4.37114e-08, 2.98023e-08, 1, 1, 0, -4.37114e-08, -4.98605e-08, 1.67304, 7.72835)
 
 [node name="Sound" type="Node" parent="." node_paths=PackedStringArray("TimerLabel")]
 script = ExtResource("13_2hkqn")

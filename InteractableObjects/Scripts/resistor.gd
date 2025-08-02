@@ -1,5 +1,5 @@
 class_name Resistor
-extends Node3D
+extends RigidBody3D
 
 @onready var collision: CollisionShape3D = $Area3D/CollisionShape3D
 
@@ -13,4 +13,4 @@ func setPosition(pos : Vector3):
 
 
 func disable():
-	collision.disabled = true
+	set_collision_layer_value(2, false)

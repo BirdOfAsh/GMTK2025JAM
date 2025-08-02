@@ -5,9 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://casnmatboa7wx" path="res://InteractableObjects/BlenderModels/ResistorContainer.blend" id="3_ix4h5"]
 [ext_resource type="Texture2D" uid="uid://dkjusta6pgoxr" path="res://Sprites/lightning.png" id="4_fte8w"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ix4h5"]
-size = Vector3(5.11816, 2.32422, 1.56738)
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pyvlx"]
 emission_shape = 1
 emission_sphere_radius = 0.25
@@ -33,21 +30,20 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_62b6n")
 size = Vector2(0.1, 0.1)
 
-[node name="ResistorHolder" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ix4h5"]
+size = Vector3(5.11816, 2.32422, 1.56738)
+
+[node name="ResistorHolder" type="RigidBody3D"]
+collision_layer = 3
+collision_mask = 3
+gravity_scale = 0.0
+freeze = true
 script = ExtResource("1_ix4h5")
 
 [node name="Interactable" parent="." instance=ExtResource("3_fte8w")]
 
 [node name="ResistorContainer" parent="." instance=ExtResource("3_ix4h5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)
-
-[node name="Area3D" type="StaticBody3D" parent="."]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.270023, 0)
-shape = SubResource("BoxShape3D_ix4h5")
 
 [node name="ResistorMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02231, 0)
@@ -71,3 +67,7 @@ randomness = 0.5
 draw_order = 1
 process_material = SubResource("ParticleProcessMaterial_pyvlx")
 draw_pass_1 = SubResource("QuadMesh_spxws")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.270023, 0)
+shape = SubResource("BoxShape3D_ix4h5")

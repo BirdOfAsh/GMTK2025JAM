@@ -1,0 +1,187 @@
+[gd_scene load_steps=21 format=3 uid="uid://itgc8pmf81bq"]
+
+[ext_resource type="Shader" uid="uid://dmifjv6gwkx2h" path="res://shaders/dithering.gdshader" id="1_1soli"]
+[ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="2_4pbjs"]
+[ext_resource type="PackedScene" uid="uid://bxm3niqugqj5j" path="res://Timer/timer_label.tscn" id="3_lmqi1"]
+[ext_resource type="PackedScene" uid="uid://26fc574m2bic" path="res://Player/player.tscn" id="4_5yfph"]
+[ext_resource type="PackedScene" uid="uid://bgfrcdfsu1gi5" path="res://InteractableObjects/BlenderModels/Wall.blend" id="5_w6yvm"]
+[ext_resource type="PackedScene" uid="uid://ce3ux77284njb" path="res://InteractableObjects/BlenderModels/Wall2.blend" id="6_jcvcn"]
+[ext_resource type="PackedScene" uid="uid://mcm4sp4henn2" path="res://InteractableObjects/Objects/time_machine.tscn" id="7_0ttnk"]
+[ext_resource type="PackedScene" uid="uid://v8fo762qcqec" path="res://InteractableObjects/Objects/light_fireplace.tscn" id="9_16yl7"]
+[ext_resource type="PackedScene" uid="uid://bmf34kuoll5m2" path="res://InteractableObjects/Objects/resistor_holder.tscn" id="10_3slvs"]
+[ext_resource type="PackedScene" uid="uid://nqgan1mxomhb" path="res://InteractableObjects/Objects/lightbulb.tscn" id="11_cnrwi"]
+[ext_resource type="PackedScene" uid="uid://bvsdscjarstei" path="res://InteractableObjects/Objects/resistor.tscn" id="12_knkse"]
+[ext_resource type="Script" uid="uid://b7474xxvefl44" path="res://Sound/SoundMan.gd" id="13_w6yvm"]
+[ext_resource type="AudioStream" uid="uid://dcm7rwlkfjd7" path="res://Sound/Baby Jazz - Billy Ocean.mp3" id="14_jcvcn"]
+[ext_resource type="AudioStream" uid="uid://b21c6twffqml" path="res://Sound/Voices/Resistor 1.wav" id="15_0ttnk"]
+[ext_resource type="AudioStream" uid="uid://dcxrm2ubcujrc" path="res://Sound/Voices/Resistor 2.wav" id="16_v3vm6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7g2g1"]
+shader = ExtResource("1_1soli")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 12
+shader_parameter/dither_size = 3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fll1h"]
+size = Vector3(18, 0.5, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qy541"]
+size = Vector3(0.5, 6, 18)
+
+[sub_resource type="BoxMesh" id="BoxMesh_45wy7"]
+size = Vector3(18, 0.2, 18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ud3to"]
+size = Vector3(18, 0.2, 18)
+
+[node name="Level2" type="Node3D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_7g2g1")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="LevelManager" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_4pbjs")]
+puzzlesToComplete = 3
+
+[node name="TimerLabel" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_lmqi1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.42725e-07, 5.01491, 6.35191)
+font_size = 126
+waitTime = 60.0
+
+[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_5yfph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25032, 5)
+
+[node name="Box" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Wall" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("5_w6yvm")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9, 3, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Box/Wall"]
+transform = Transform3D(7.54979e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, 7.54979e-08, -3.30012e-15, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Box/Wall/StaticBody3D"]
+transform = Transform3D(1, 1.98954e-13, -3.22945e-21, -1.98954e-13, 1, -4.86727e-13, 3.22935e-21, 4.86727e-13, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_fll1h")
+
+[node name="Wall2" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("5_w6yvm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, -1.57361e-06)
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Box/Wall2"]
+transform = Transform3D(7.54979e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, 7.54979e-08, -3.30012e-15, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Box/Wall2/StaticBody3D"]
+transform = Transform3D(1, 1.98954e-13, -3.22945e-21, -1.98954e-13, 1, -4.86727e-13, 3.22935e-21, 4.86727e-13, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_fll1h")
+
+[node name="Wall3" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("5_w6yvm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.72853e-06, 3, -9)
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Box/Wall3"]
+transform = Transform3D(7.54979e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, 7.54979e-08, -3.30012e-15, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Box/Wall3/StaticBody3D"]
+transform = Transform3D(1, 1.98954e-13, -3.22945e-21, -1.98954e-13, 1, -4.86727e-13, 3.22935e-21, 4.86727e-13, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_fll1h")
+
+[node name="Wall4" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("5_w6yvm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.4173e-07, 3, 9)
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Box/Wall4"]
+transform = Transform3D(7.54979e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, 7.54979e-08, -3.30012e-15, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Box/Wall4/StaticBody3D"]
+transform = Transform3D(1, 1.98954e-13, -3.22945e-21, -1.98954e-13, 1, -4.86727e-13, 3.22935e-21, 4.86727e-13, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_fll1h")
+
+[node name="WallGap" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("6_jcvcn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.41249e-07, 3, 6.6253)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Box/WallGap"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Box/WallGap/StaticBody3D"]
+shape = SubResource("BoxShape3D_qy541")
+
+[node name="Floor" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0377955, 0)
+mesh = SubResource("BoxMesh_45wy7")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Box/Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Box/Floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_ud3to")
+
+[node name="Ceiling" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("BoxMesh_45wy7")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Box/Ceiling"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Box/Ceiling/StaticBody3D"]
+shape = SubResource("BoxShape3D_ud3to")
+
+[node name="TimeMachine" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("7_0ttnk")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
+
+[node name="lightFireplace" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("9_16yl7")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 7.28998, 1.23318, -7.28998)
+
+[node name="ResistorHolder" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("10_3slvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.681309, 7.7268)
+
+[node name="ParticalCollision" type="Node3D" parent="SubViewportContainer/SubViewport/Box/ResistorHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.681, -8.166)
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="SubViewportContainer/SubViewport/Box/ResistorHolder/ParticalCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00288212, 0.157715, 8.16429)
+size = Vector3(4.68918, 2.31543, 1.64307)
+
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="SubViewportContainer/SubViewport/Box/ResistorHolder/ParticalCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84382, 0.507813, 8.16429)
+size = Vector3(0.995781, 3.01563, 1.64307)
+
+[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="SubViewportContainer/SubViewport/Box/ResistorHolder/ParticalCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84516, 0.507813, 8.16429)
+size = Vector3(0.995781, 3.01563, 1.64307)
+
+[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="SubViewportContainer/SubViewport/Box/ResistorHolder/ParticalCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0471039, -0.432983, 0.0615234)
+size = Vector3(18.4008, 1.13403, 19.1348)
+
+[node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="SubViewportContainer/SubViewport/Box/ResistorHolder/ParticalCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103161, 2.49463, 9.01464)
+size = Vector3(18.033, 6.98926, 0.376465)
+
+[node name="Lightbulb" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("11_cnrwi")]
+transform = Transform3D(-0.435677, -0.332712, 0.836354, 0.141235, 0.892397, 0.42858, -0.888953, 0.304845, -0.341806, -8.46438, -1.19209e-07, 6.1153)
+lightbulbActivatedReverse = true
+
+[node name="Resistor" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("12_knkse")]
+transform = Transform3D(0.75, 0.288849, 0.595035, 0.5, -0.836516, -0.224144, 0.433013, 0.465625, -0.771811, -8.10598, 1.33595, -8.15178)
+
+[node name="Sound" type="Node" parent="." node_paths=PackedStringArray("TimerLabel")]
+script = ExtResource("13_w6yvm")
+TimerLabel = NodePath("../SubViewportContainer/SubViewport/TimerLabel")
+
+[node name="Music" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("14_jcvcn")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[node name="CharacterTalk1" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("15_0ttnk")
+
+[node name="CharacterTalk2" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("16_v3vm6")

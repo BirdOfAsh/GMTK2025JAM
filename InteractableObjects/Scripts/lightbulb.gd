@@ -1,7 +1,6 @@
 class_name Lightbulb
-extends Node3D
+extends RigidBody3D
 
-@onready var collision: CollisionShape3D = $Area3D/CollisionShape3D
 @onready var lightbulb: Node3D = $Lightbulb
 @onready var lightbulb_off: Node3D = $LightbulbOff
 @export var lightbulbActivatedReverse: bool = false
@@ -14,6 +13,10 @@ func _ready() -> void:
 func interaction(player : CharacterBody3D):
 	player.call("pickup", self)
 	switchBulbMesh(true)
+
+
+func disable():
+	set_collision_layer_value(2, false)
 
 
 func setPosition(pos : Vector3):
