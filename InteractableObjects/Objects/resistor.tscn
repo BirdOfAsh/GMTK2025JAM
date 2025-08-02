@@ -23,3 +23,5 @@ metadata/_custom_type_script = "uid://dt67bl4dq7xod"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_b4p3t")
+
+[editable path="ResistorModel"]
