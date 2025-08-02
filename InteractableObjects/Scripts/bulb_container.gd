@@ -1,15 +1,18 @@
 extends Node3D
 
 @onready var bulbMarker: Marker3D = $BulbMarker
-
+@onready var electricParts: GPUParticles3D = $GPUParticles3D
 var heldBulb : Lightbulb
+
+func _ready() -> void:
+	electricParts.emitting = true
 
 func interaction(player : CharacterBody3D):
 	if player.call("getHeldObject") is Lightbulb:
 		heldBulb = player.call("getHeldObject")
 		player.call("place", self)
 		heldBulb.switchBulbMesh(false)
-		
+		electricParts.emitting = false
 		SignalBussin.emit_signal("increaseCompletedPuzzle")
 
 

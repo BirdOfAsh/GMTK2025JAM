@@ -4,13 +4,18 @@ extends Node3D
 @onready var particle: GPUParticles3D = $GPUParticles3D2
 @onready var particle1: GPUParticles3D = $GPUParticles3D
 var heldResistor : Resistor
+@export var startEmission: bool = true
+
+func _ready() -> void:
+	particle.set_emitting(startEmission)
+	particle1.set_emitting(startEmission)
 
 func interaction(player : CharacterBody3D):
 	if player.call("getHeldObject") is Resistor:
 		heldResistor = player.call("getHeldObject")
 		player.call("place", self)
-		particle.set_emitting(true)
-		particle1.set_emitting(true)
+		particle.set_emitting(false)
+		particle1.set_emitting(false)
 		heldResistor.disable()
 		
 		SignalBussin.emit_signal("increaseCompletedPuzzle")

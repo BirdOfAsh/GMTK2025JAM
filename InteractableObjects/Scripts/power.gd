@@ -6,9 +6,21 @@ extends RigidBody3D
 
 @onready var shimmer : ShaderMaterial = preload("res://shaders/shimmerMat.tres")
 
+var part1: GPUParticles3D
+var part2: GPUParticles3D
+
+var powerManager: Node
+
+func _ready() -> void:
+	part1 = self.find_child("GPUParticles3D")
+	part2 = self.find_child("GPUParticles3D2")
+	powerManager = self.get_parent().find_child("PowerManager")
 
 func interaction(_player : CharacterBody3D):
 	animation_player.play("Cube_005Action")
+	part1.emitting = false
+	part2.emitting = false
+	powerManager.leverFlicked()
 	disable()
 
 
