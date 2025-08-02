@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cxoxkpsyiiw6i"]
+[gd_scene load_steps=33 format=3 uid="uid://cxoxkpsyiiw6i"]
 
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="1_f4pg2"]
 [ext_resource type="Shader" uid="uid://dmifjv6gwkx2h" path="res://shaders/dithering.gdshader" id="1_rs4xw"]
@@ -308,12 +308,13 @@ transform = Transform3D(0, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.585, 5.414, -3.948)
 
 [node name="Screen" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("22_2i07x")]
-transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 0.0630013, 3, -8.75)
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 0.0630013, 4, -8.75)
 
 [node name="TimerLabel" parent="SubViewportContainer/SubViewport/Box/Screen" instance=ExtResource("2_62b6n")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 0.139294, 0.0149102, -0.0629974)
 font_size = 126
 waitTime = 60.0
+
 [node name="PowerSwitch" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("12_c7pbv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.84485, 0.0798514, 0.104805)
 

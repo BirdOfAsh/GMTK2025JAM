@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://itgc8pmf81bq"]
+[gd_scene load_steps=33 format=3 uid="uid://itgc8pmf81bq"]
 
 [ext_resource type="Shader" uid="uid://dmifjv6gwkx2h" path="res://shaders/dithering.gdshader" id="1_1soli"]
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="2_4pbjs"]
@@ -11,11 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bmf34kuoll5m2" path="res://InteractableObjects/Objects/resistor_holder.tscn" id="10_3slvs"]
 [ext_resource type="PackedScene" uid="uid://nqgan1mxomhb" path="res://InteractableObjects/Objects/lightbulb.tscn" id="11_cnrwi"]
 [ext_resource type="PackedScene" uid="uid://bt8wlt5r70obw" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong2.blend" id="12_cnrwi"]
-[ext_resource type="PackedScene" uid="uid://bvsdscjarstei" path="res://InteractableObjects/Objects/resistor.tscn" id="12_knkse"]
-[ext_resource type="PackedScene" uid="uid://gn4xnt2gpwlu" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong3.blend" id="13_knkse"]
 [ext_resource type="PackedScene" uid="uid://13xn8ks5yvjw" path="res://InteractableObjects/Objects/power_switch.tscn" id="12_jcvcn"]
 [ext_resource type="PackedScene" uid="uid://bvsdscjarstei" path="res://InteractableObjects/Objects/resistor.tscn" id="12_knkse"]
 [ext_resource type="Texture2D" uid="uid://dkjusta6pgoxr" path="res://Sprites/lightning.png" id="13_0ttnk"]
+[ext_resource type="PackedScene" uid="uid://gn4xnt2gpwlu" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong3.blend" id="13_knkse"]
 [ext_resource type="Script" uid="uid://b7474xxvefl44" path="res://Sound/SoundMan.gd" id="13_w6yvm"]
 [ext_resource type="PackedScene" uid="uid://yt2ali884ws6" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong.blend" id="14_7g2g1"]
 [ext_resource type="AudioStream" uid="uid://dcm7rwlkfjd7" path="res://Sound/Baby Jazz - Billy Ocean.mp3" id="14_jcvcn"]
@@ -313,12 +312,13 @@ transform = Transform3D(0, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.585, 5.414, -3.948)
 
 [node name="Screen" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("18_ud3to")]
-transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 0.0630013, 3, -8.75)
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 0.0630013, 4, -8.75)
 
 [node name="TimerLabel" parent="SubViewportContainer/SubViewport/Box/Screen" instance=ExtResource("3_lmqi1")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 0.139294, 0.0149102, -0.0629974)
 font_size = 126
 waitTime = 60.0
+
 [node name="PowerSwitch" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("12_jcvcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.84485, 0.0798514, 0.104805)
 
