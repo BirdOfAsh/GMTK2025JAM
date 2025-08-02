@@ -15,7 +15,7 @@ collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62b6n"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fte8w"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -27,7 +27,7 @@ emission_energy_multiplier = 20.0
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_spxws"]
-material = SubResource("StandardMaterial3D_62b6n")
+material = SubResource("StandardMaterial3D_fte8w")
 size = Vector2(0.1, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ix4h5"]
@@ -50,6 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02231, 0)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23578, 1.1417, 0.0394211)
+visibility_range_end = 4096.0
 emitting = false
 amount = 5
 explosiveness = 1.0
@@ -60,6 +61,7 @@ draw_pass_1 = SubResource("QuadMesh_spxws")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20158, 1.1417, 0.0394211)
+visibility_range_end = 4096.0
 emitting = false
 amount = 5
 explosiveness = 1.0

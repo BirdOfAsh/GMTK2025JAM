@@ -1,7 +1,7 @@
 class_name Resistor
 extends RigidBody3D
 
-@onready var collision: CollisionShape3D = $Area3D/CollisionShape3D
+@onready var collision: CollisionShape3D = $CollisionShape3D
 
 
 func interaction(player : CharacterBody3D):
