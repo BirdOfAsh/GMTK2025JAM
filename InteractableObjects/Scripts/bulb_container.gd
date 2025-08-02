@@ -8,7 +8,7 @@ func interaction(player : CharacterBody3D):
 	if player.call("getHeldObject") is Lightbulb:
 		heldBulb = player.call("getHeldObject")
 		player.call("place", self)
-		heldBulb.disable()
+		heldBulb.switchBulbMesh()
 		
 		SignalBussin.emit_signal("increaseCompletedPuzzle")
 

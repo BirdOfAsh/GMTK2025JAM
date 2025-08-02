@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://nqgan1mxomhb"]
+[gd_scene load_steps=6 format=3 uid="uid://nqgan1mxomhb"]
 
 [ext_resource type="Script" uid="uid://cvfubade3ounx" path="res://InteractableObjects/Scripts/lightbulb.gd" id="1_m87ea"]
 [ext_resource type="PackedScene" uid="uid://dqrtvlij0pgcc" path="res://InteractableObjects/BlenderModels/Lightbulb.blend" id="1_uo47t"]
 [ext_resource type="Script" uid="uid://dt67bl4dq7xod" path="res://InteractableObjects/Interactable.gd" id="2_m87ea"]
+[ext_resource type="PackedScene" uid="uid://qios4c3wg4v5" path="res://InteractableObjects/BlenderModels/LightbulbOff.blend" id="4_xjt7v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xjt7v"]
 size = Vector3(0.6, 0.8, 0.6)
@@ -24,3 +25,7 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.376, 0)
 shape = SubResource("BoxShape3D_xjt7v")
+
+[node name="LightbulbOff" parent="." instance=ExtResource("4_xjt7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
