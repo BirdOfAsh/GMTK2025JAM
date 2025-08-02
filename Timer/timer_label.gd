@@ -13,6 +13,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	text = str(float(int(timer.time_left * 10)) / 10)
 
+func get_time() -> float:
+	return timer.time_left
 
 func _on_timer_timeout() -> void:
 	SignalBussin.emit_signal("resetLoop")

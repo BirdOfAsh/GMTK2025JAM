@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxoxkpsyiiw6i"]
+[gd_scene load_steps=22 format=3 uid="uid://cxoxkpsyiiw6i"]
 
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="1_f4pg2"]
 [ext_resource type="Shader" uid="uid://dmifjv6gwkx2h" path="res://shaders/dithering.gdshader" id="1_rs4xw"]
@@ -12,6 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://dmqyoxciba74u" path="res://InteractableObjects/Objects/weird_fireplace.tscn" id="10_f4pg2"]
 [ext_resource type="PackedScene" uid="uid://1ay26hbrrw1w" path="res://InteractableObjects/BlenderModels/Resistor.blend" id="10_rs4xw"]
 [ext_resource type="PackedScene" uid="uid://ce3ux77284njb" path="res://InteractableObjects/BlenderModels/Wall2.blend" id="11_62b6n"]
+[ext_resource type="Script" uid="uid://b7474xxvefl44" path="res://Sound/SoundMan.gd" id="13_2hkqn"]
+[ext_resource type="AudioStream" uid="uid://dcm7rwlkfjd7" path="res://Sound/Baby Jazz - Billy Ocean.mp3" id="13_lk57d"]
+[ext_resource type="AudioStream" uid="uid://coj80mt7nicfx" path="res://Sound/Voices/Lightbulb 1.wav" id="15_k2bse"]
+[ext_resource type="AudioStream" uid="uid://b380aapm7bmwa" path="res://Sound/Voices/Lightbulb 2.wav" id="16_c7pbv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lk57d"]
 shader = ExtResource("1_rs4xw")
@@ -200,6 +204,7 @@ size = Vector3(18.033, 6.98926, 0.376465)
 
 [node name="TestBulb" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("7_0urlm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 1)
+lightbulbActivatedReverse = true
 
 [node name="LeverMachine1" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("8_77x7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23079, 0, -5.54906)
@@ -218,3 +223,22 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 
 [node name="ResistorModel" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("10_rs4xw")]
 transform = Transform3D(0, 1, -2.98023e-08, 4.37114e-08, 2.98023e-08, 1, 1, 0, -4.37114e-08, -4.98605e-08, 1.67304, 7.72835)
+
+[node name="Sound" type="Node" parent="." node_paths=PackedStringArray("TimerLabel")]
+script = ExtResource("13_2hkqn")
+TimerLabel = NodePath("../SubViewportContainer/SubViewport/TimerLabel")
+
+[node name="Music" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("13_lk57d")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="CharacterTalk1" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("15_k2bse")
+bus = &"Voices"
+
+[node name="CharacterTalk2" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("16_c7pbv")
+bus = &"Voices"

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwjekme2epkin"
+path="res://.godot/imported/Pipes 2.wav-f94941ac91ff1d5c8ff4487200b0009f.sample"
+
+[deps]
+
+source_file="res://Sound/Voices/Pipes 2.wav"
+dest_files=["res://.godot/imported/Pipes 2.wav-f94941ac91ff1d5c8ff4487200b0009f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

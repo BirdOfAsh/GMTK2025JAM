@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://up030m8sx8g2"]
+[gd_scene load_steps=6 format=3 uid="uid://up030m8sx8g2"]
 
 [ext_resource type="Script" uid="uid://b75s1gyq76bx7" path="res://Levels/MainMenu/mainmenu.gd" id="1_pdyux"]
 [ext_resource type="Shader" uid="uid://b2naof7ljcn5e" path="res://Levels/MainMenu/mainMenuBackground.gdshader" id="2_mdne7"]
+[ext_resource type="AudioStream" uid="uid://cgjxikrs5n5cp" path="res://Sound/Voices/Opening.wav" id="3_g6pvw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g6pvw"]
 shader = ExtResource("2_mdne7")
@@ -65,5 +66,10 @@ layout_mode = 2
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Start"
+flat = true
+
+[node name="Opening" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g6pvw")
+autoplay = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

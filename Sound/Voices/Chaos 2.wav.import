@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://j4bhnscto16r"
+path="res://.godot/imported/Chaos 2.wav-c032c8ab8d1ab949b09110d32e1a4c99.sample"
+
+[deps]
+
+source_file="res://Sound/Voices/Chaos 2.wav"
+dest_files=["res://.godot/imported/Chaos 2.wav-c032c8ab8d1ab949b09110d32e1a4c99.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
