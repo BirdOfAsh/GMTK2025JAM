@@ -7,20 +7,20 @@
 height = 1.57739
 radius = 0.85498
 
-[node name="bulbContainer" type="RigidBody3D"]
-collision_layer = 2
-collision_mask = 2
-gravity_scale = 0.0
-freeze = true
+[node name="bulbContainer" type="Node3D"]
 script = ExtResource("1_1vxri")
 
 [node name="Interactable" type="Node" parent="."]
 script = ExtResource("2_sa64n")
 metadata/_custom_type_script = "uid://dt67bl4dq7xod"
 
-[node name="BulbMarker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
+[node name="bulbArea1" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bulbArea1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340942, 0)
 shape = SubResource("CylinderShape3D_57thq")
+
+[node name="BulbMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)

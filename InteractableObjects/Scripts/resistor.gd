@@ -1,7 +1,7 @@
 class_name Resistor
-extends RigidBody3D
+extends Node3D
 
-@onready var staticBody: StaticBody3D = $StaticBody3D
+@onready var collision: CollisionShape3D = $Area3D/CollisionShape3D
 
 
 func interaction(player : CharacterBody3D):
@@ -13,4 +13,4 @@ func setPosition(pos : Vector3):
 
 
 func disable():
-	set_collision_layer_value(2, false)
+	collision.disabled = true
