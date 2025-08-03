@@ -329,20 +329,6 @@ draw_pass_1 = SubResource("QuadMesh_x1ydc")
 [node name="PowerManager" type="Node" parent="SubViewportContainer/SubViewport/Box"]
 script = ExtResource("15_cpeii")
 
-[node name="SpeakerMan" type="Node3D" parent="SubViewportContainer/SubViewport/Box"]
-
-[node name="Speakers" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("16_w5alg")]
-transform = Transform3D(-0.641637, 0, 0.767008, 0, 1, 0, -0.767008, 0, -0.641637, 8.09634, 4.24208, 5.9675)
-
-[node name="Speakers2" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("16_w5alg")]
-transform = Transform3D(-0.710849, 0, -0.703345, 0, 1, 0, 0.703345, 0, -0.710849, 8.29535, 4.24208, -8.24605)
-
-[node name="Speakers3" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("16_w5alg")]
-transform = Transform3D(0.622474, 0, 0.782641, 0, 1, 0, -0.782641, 0, 0.622474, -8.26881, 4.24208, 6.06255)
-
-[node name="Speakers4" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("16_w5alg")]
-transform = Transform3D(0.634987, 0, -0.772523, 0, 1, 0, 0.772523, 0, 0.634987, -8.15573, 4.24771, -8.35153)
-
 [node name="Pipes" type="Node3D" parent="SubViewportContainer/SubViewport/Box"]
 
 [node name="StrightPipeLong2" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("17_gmx17")]
@@ -465,6 +451,20 @@ transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 0.0630
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 0.139294, 0.0149102, -0.0629974)
 font_size = 126
 waitTime = 60.0
+
+[node name="SpeakerMan" type="Node3D" parent="SubViewportContainer/SubViewport/Box"]
+
+[node name="Speakers" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("16_w5alg")]
+transform = Transform3D(-0.641637, 0, 0.767008, 0, 1, 0, -0.767008, 0, -0.641637, 8.09634, 4.24208, 5.9675)
+
+[node name="Speakers2" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("16_w5alg")]
+transform = Transform3D(-0.710849, 0, -0.703345, 0, 1, 0, 0.703345, 0, -0.710849, 8.29535, 4.24208, -8.24605)
+
+[node name="Speakers3" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("16_w5alg")]
+transform = Transform3D(0.622474, 0, 0.782641, 0, 1, 0, -0.782641, 0, 0.622474, -8.26881, 4.24208, 6.06255)
+
+[node name="Speakers4" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("16_w5alg")]
+transform = Transform3D(0.634987, 0, -0.772523, 0, 1, 0, 0.772523, 0, 0.634987, -8.15573, 4.24771, -8.35153)
 
 [node name="Sound" type="Node" parent="." node_paths=PackedStringArray("TimerLabel")]
 script = ExtResource("25_u5c84")

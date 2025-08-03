@@ -128,7 +128,7 @@ transform = Transform3D(-4.37114e-08, 0.224951, -0.97437, 0, 0.97437, 0.224951, 
 fov = 34.9684
 
 [node name="Cam3" type="Camera3D" parent="SubViewportContainer/SubViewport/Cams"]
-transform = Transform3D(-1, 4.37114e-08, -7.57103e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 0, 5, 0)
+transform = Transform3D(-1, 7.54979e-08, -1.30766e-07, 0, 0.866025, 0.5, 1.50996e-07, 0.5, -0.866025, 0, 5, 0)
 
 [node name="Cam4" type="Camera3D" parent="SubViewportContainer/SubViewport/Cams"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, -2)
@@ -245,7 +245,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103161, 2.49463, 9.01464)
 size = Vector3(18.033, 6.98926, 0.376465)
 
 [node name="Lightbulb" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("10_x8ql4")]
-transform = Transform3D(-0.435677, -0.332712, 0.836354, 0.141235, 0.892397, 0.42858, -0.888953, 0.304845, -0.341806, -8.46438, -1.19209e-07, 6.1153)
+transform = Transform3D(-0.435677, -0.332712, 0.836354, 0.141235, 0.892397, 0.428579, -0.888953, 0.304845, -0.341806, -8.46438, -1.19209e-07, 6.1153)
 lightbulbActivatedReverse = true
 
 [node name="Resistor" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("11_bqrkq")]
@@ -328,20 +328,6 @@ draw_pass_1 = SubResource("QuadMesh_cpypc")
 
 [node name="PowerManager" type="Node" parent="SubViewportContainer/SubViewport/Box"]
 script = ExtResource("14_cuu0r")
-
-[node name="SpeakerMan" type="Node3D" parent="SubViewportContainer/SubViewport/Box"]
-
-[node name="Speakers" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_7eb8a")]
-transform = Transform3D(-0.641637, 0, 0.767008, 0, 1, 0, -0.767008, 0, -0.641637, 8.09634, 4.24208, 5.9675)
-
-[node name="Speakers2" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_7eb8a")]
-transform = Transform3D(-0.710849, 0, -0.703345, 0, 1, 0, 0.703345, 0, -0.710849, 8.29535, 4.24208, -8.24605)
-
-[node name="Speakers3" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_7eb8a")]
-transform = Transform3D(0.622474, 0, 0.782641, 0, 1, 0, -0.782641, 0, 0.622474, -8.26881, 4.24208, 6.06255)
-
-[node name="Speakers4" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_7eb8a")]
-transform = Transform3D(0.634987, 0, -0.772523, 0, 1, 0, 0.772523, 0, 0.634987, -8.15573, 4.24771, -8.35153)
 
 [node name="Pipes" type="Node3D" parent="SubViewportContainer/SubViewport/Box"]
 
@@ -465,6 +451,20 @@ transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 0.0630
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 0.139294, 0.0149102, -0.0629974)
 font_size = 126
 waitTime = 60.0
+
+[node name="SpeakerMan" type="Node3D" parent="SubViewportContainer/SubViewport/Box"]
+
+[node name="Speakers" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_7eb8a")]
+transform = Transform3D(-0.641637, 0, 0.767008, 0, 1, 0, -0.767008, 0, -0.641637, 8.09634, 4.24208, 5.9675)
+
+[node name="Speakers2" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_7eb8a")]
+transform = Transform3D(-0.710849, 0, -0.703345, 0, 1, 0, 0.703345, 0, -0.710849, 8.29535, 4.24208, -8.24605)
+
+[node name="Speakers3" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_7eb8a")]
+transform = Transform3D(0.622474, 0, 0.782641, 0, 1, 0, -0.782641, 0, 0.622474, -8.26881, 4.24208, 6.06255)
+
+[node name="Speakers4" parent="SubViewportContainer/SubViewport/Box/SpeakerMan" instance=ExtResource("15_7eb8a")]
+transform = Transform3D(0.634987, 0, -0.772523, 0, 1, 0, 0.772523, 0, 0.634987, -8.15573, 4.24771, -8.35153)
 
 [node name="Sound" type="Node" parent="." node_paths=PackedStringArray("TimerLabel")]
 script = ExtResource("24_mj332")

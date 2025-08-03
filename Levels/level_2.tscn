@@ -195,7 +195,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103161, 2.49463, 9.01464)
 size = Vector3(18.033, 6.98926, 0.376465)
 
 [node name="Lightbulb" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("11_cnrwi")]
-transform = Transform3D(-0.435677, -0.332712, 0.836354, 0.141235, 0.892397, 0.42858, -0.888953, 0.304845, -0.341806, -8.46438, -1.19209e-07, 6.1153)
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -8.56341, 1.70415, -4.94391)
 lightbulbActivatedReverse = true
 
 [node name="Resistor" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("12_knkse")]

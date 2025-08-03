@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var camera : Camera3D = $Camera3D
-@onready var interactionArea : Area3D = $Camera3D/Area3D
+@onready var interactionArea : Area3D = $Area3D
 @onready var holdingMarker: Marker3D = $HoldingMarker
 
 
@@ -66,8 +66,6 @@ func pickup(object : Node3D) -> void:
 		object.reparent(holdingMarker)
 		heldObject = object
 
-		print("picked up object")
-		print(object)
 		object.disableShimmer()
 
 
@@ -78,6 +76,7 @@ func getHeldObject() -> Node3D:
 func place(placementNode : Node3D) -> void:
 	heldObject.reparent(placementNode)
 	heldObject = null
+	objectLookingAt = null
 	
 
 func lerpToMarker(delta : float):
@@ -90,9 +89,11 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.has_method("enableShimmer") && heldObject != body:
 		body.enableShimmer()
 	objectLookingAt = body.find_child("Interactable")
+	print(objectLookingAt.get_parent())
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.has_method("disableShimmer"):
 		body.disableShimmer()
-	objectLookingAt = null
+		objectLookingAt = null
+		print("make null look at ")

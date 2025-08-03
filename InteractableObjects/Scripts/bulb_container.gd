@@ -1,4 +1,4 @@
-extends Node3D
+extends RigidBody3D
 
 @onready var bulbMarker: Marker3D = $BulbMarker
 @onready var electricParts: GPUParticles3D = $GPUParticles3D
@@ -14,7 +14,14 @@ func interaction(player : CharacterBody3D):
 		player.call("place", self)
 		heldBulb.switchBulbMesh(false)
 		electricParts.emitting = false
+		
+		
+		disable()
 		SignalBussin.emit_signal("increaseCompletedPuzzle")
+
+
+func disable():
+	set_collision_layer_value(2, false)
 
 
 func _process(delta: float) -> void:

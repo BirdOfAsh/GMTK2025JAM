@@ -1,17 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://26fc574m2bic"]
+[gd_scene load_steps=5 format=3 uid="uid://26fc574m2bic"]
 
 [ext_resource type="Script" uid="uid://ddn0dd6vo543c" path="res://Player/player.gd" id="1_l8h54"]
+[ext_resource type="PackedScene" uid="uid://hafreccnt3h7" path="res://InteractableObjects/BlenderModels/DumbassRoomba.blend" id="2_4ntmi"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kww3p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l8h54"]
 size = Vector3(1, 3, 1.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4ntmi"]
-size = Vector3(0.145, 0.105, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_l8h54"]
-size = Vector3(1, 2.065, 0.335)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_l8h54")
@@ -20,32 +15,24 @@ script = ExtResource("1_l8h54")
 shape = SubResource("CylinderShape3D_kww3p")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.649226, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.649226, -0.534486)
 
-[node name="Area3D" type="Area3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.135226, -1.005)
+[node name="HoldingMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.495535, 0.020654, -1.44324)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.514, -1.005)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_l8h54")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.954313, 0.298808, 0, -0.298808, 0.954313, 0.422989, -0.28657, -0.652289)
-mesh = SubResource("BoxMesh_4ntmi")
+[node name="DumbassRoomba" parent="." instance=ExtResource("2_4ntmi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.954313, 0.298808, 0, -0.298808, 0.954313, -0.408267, -0.28657, -0.652289)
-mesh = SubResource("BoxMesh_4ntmi")
-
-[node name="HoldingMarker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.464493, -0.412111, -1.11619)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_l8h54")
-
-[connection signal="area_entered" from="Camera3D/Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="Camera3D/Area3D" to="." method="_on_area_3d_area_exited"]
-[connection signal="body_entered" from="Camera3D/Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Camera3D/Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
