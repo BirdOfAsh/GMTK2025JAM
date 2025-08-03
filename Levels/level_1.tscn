@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://v8fo762qcqec" path="res://InteractableObjects/Objects/light_fireplace.tscn" id="13_34erp"]
 [ext_resource type="Texture2D" uid="uid://dkjusta6pgoxr" path="res://Sprites/lightning.png" id="13_77l7m"]
 [ext_resource type="AudioStream" uid="uid://dcm7rwlkfjd7" path="res://Sound/Baby Jazz - Billy Ocean.mp3" id="13_lk57d"]
-[ext_resource type="PackedScene" uid="uid://u7fn1yunq7x8" path="res://InteractableObjects/Objects/Speakers.tscn" id="14_77l7m"]
+[ext_resource type="PackedScene" path="res://InteractableObjects/Objects/Speakers.tscn" id="14_77l7m"]
 [ext_resource type="AudioStream" uid="uid://coj80mt7nicfx" path="res://Sound/Voices/Lightbulb 1.wav" id="15_k2bse"]
 [ext_resource type="AudioStream" uid="uid://b380aapm7bmwa" path="res://Sound/Voices/Lightbulb 2.wav" id="16_c7pbv"]
 [ext_resource type="PackedScene" uid="uid://bt8wlt5r70obw" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong2.blend" id="16_uclwg"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cs6rjug7ovrc1" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeShort2.blend" id="20_xg5g8"]
 [ext_resource type="PackedScene" uid="uid://b21lbhy1gbbtv" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeShort3.blend" id="21_p7b0h"]
 [ext_resource type="PackedScene" uid="uid://bvqrw5awdwbxd" path="res://InteractableObjects/BlenderModels/Screen.blend" id="22_2i07x"]
+[ext_resource type="PackedScene" uid="uid://bcep216uge2ac" path="res://Levels/bubble.tscn" id="26_xg5g8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lk57d"]
 shader = ExtResource("1_rs4xw")
@@ -72,6 +73,8 @@ material = SubResource("StandardMaterial3D_xg5g8")
 size = Vector2(0.1, 0.1)
 
 [node name="Level1" type="Node3D"]
+
+[node name="bubble" parent="." instance=ExtResource("26_xg5g8")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_lk57d")
@@ -433,3 +436,5 @@ stream = ExtResource("15_k2bse")
 
 [node name="CharacterTalk2" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("16_c7pbv")
+
+[editable path="bubble"]

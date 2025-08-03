@@ -34,7 +34,8 @@ func decreasePuzzleCount():
 func progressToNextLoop():
 	for level in levelsDict:
 			if levelsDict[level] == get_tree().current_scene.scene_file_path:
-				get_tree().change_scene_to_file(levelsDict[level + 1])
+				get_tree().current_scene.find_child("bubble").get_child(0).play("shrink")
+				
 				break
 
 

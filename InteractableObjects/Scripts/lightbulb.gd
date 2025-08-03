@@ -5,6 +5,9 @@ extends RigidBody3D
 @onready var lightbulb_off: Node3D = $LightbulbOff
 @export var lightbulbActivatedReverse: bool = false
 
+@onready var shimmer : ShaderMaterial = preload("res://shaders/shimmerMat.tres")
+@onready var icosphere: MeshInstance3D = $LightbulbOff/Icosphere
+
 func _ready() -> void:
 	## True is off
 	## False is on
@@ -34,3 +37,10 @@ func switchBulbMesh(lightonoff):
 		false:
 			lightbulb.visible = true
 			lightbulb_off.visible = false
+
+func enableShimmer():
+	icosphere.material_overlay = shimmer
+
+
+func disableShimmer():
+	icosphere.material_overlay = null
