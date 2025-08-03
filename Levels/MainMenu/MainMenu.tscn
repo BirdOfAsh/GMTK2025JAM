@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://up030m8sx8g2"]
+[gd_scene load_steps=7 format=3 uid="uid://up030m8sx8g2"]
 
 [ext_resource type="Script" uid="uid://b75s1gyq76bx7" path="res://Levels/MainMenu/mainmenu.gd" id="1_pdyux"]
 [ext_resource type="Shader" uid="uid://b2naof7ljcn5e" path="res://Levels/MainMenu/mainMenuBackground.gdshader" id="2_mdne7"]
 [ext_resource type="AudioStream" uid="uid://cgjxikrs5n5cp" path="res://Sound/Voices/Opening.wav" id="3_g6pvw"]
+[ext_resource type="FontFile" uid="uid://c8sgp6adyf4kc" path="res://Font/Seven Segment.ttf" id="3_mp53d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g6pvw"]
 shader = ExtResource("2_mdne7")
@@ -21,6 +22,7 @@ shader_parameter/spin_amount = 0.58
 shader_parameter/pixel_filter = 700.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_04b30"]
+font = ExtResource("3_mp53d")
 font_size = 90
 
 [node name="MainMenu" type="Control"]
@@ -54,8 +56,9 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-text = "Time Loop"
+text = "One Minute Mechanic"
 label_settings = SubResource("LabelSettings_04b30")
 
 [node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
@@ -64,7 +67,10 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mp53d")
+theme_override_font_sizes/font_size = 28
 text = "Start"
 flat = true
 
