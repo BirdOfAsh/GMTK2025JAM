@@ -87,7 +87,7 @@ func lerpToMarker(delta : float):
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.has_method("enableShimmer") && heldObject == null:
+	if body.has_method("enableShimmer") && heldObject != body:
 		body.enableShimmer()
 	objectLookingAt = body.find_child("Interactable")
 
