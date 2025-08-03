@@ -17,14 +17,14 @@ func _ready() -> void:
 	SignalBussin.connect("increaseCompletedPuzzle", increasePuzzleCount)
 	SignalBussin.connect("decreaseCompletedPuzzle", decreasePuzzleCount)
 	SignalBussin.connect("resetLoop", resetLoop)
+	SignalBussin.connect("NEXTSCENEAHHHHHH", progressToNextLoop)
 
 
 func increasePuzzleCount():
 	completedPuzzles += 1
 	
 	if completedPuzzles == puzzlesToComplete:
-		progressToNextLoop()
-
+		SignalBussin.emit_signal("weLoveTransitioning")
 
 func decreasePuzzleCount():
 	if completedPuzzles > 0:

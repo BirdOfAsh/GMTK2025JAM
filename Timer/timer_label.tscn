@@ -5,7 +5,7 @@
 
 [node name="TimerLabel" type="Label3D"]
 texture_filter = 0
-text = "this is not skibidi"
+text = "The Game Froze didn't iT..."
 font = ExtResource("1_r6duc")
 script = ExtResource("1_1rtu0")
 waitTime = 5.0

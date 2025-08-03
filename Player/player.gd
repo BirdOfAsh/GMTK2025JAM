@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var camera : Camera3D = $Camera3D
 @onready var interactionArea : Area3D = $Area3D
 @onready var holdingMarker: Marker3D = $HoldingMarker
+@onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
 
 
 ######## CAMERA ########
@@ -15,14 +16,22 @@ var objectLookingAt: Node
 ######## INTERACTION ########
 var heldObject : Node3D
 
+var intro : bool = true
+var GOOOOO : bool = false
+
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+	SignalBussin.connect("weLoveTransitioning", huh)
 	#pass
 
 
 func _process(delta: float) -> void:
 	lerpToMarker(delta)
+	if intro and mesh_instance_3d.mesh.material.albedo_color.a > 0.01:
+		transitionIn(delta)
+	if GOOOOO:
+		transitionOut(delta)
 
 
 func _physics_process(delta: float) -> void:
@@ -50,7 +59,7 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	keyEPressed(event)
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion:
 		rotate_y(event.relative.x * -0.005 * mouseSensitivity)
 		camera.rotate_x(event.relative.y * -0.005 * mouseSensitivity)
 		
@@ -97,3 +106,20 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		body.disableShimmer()
 		objectLookingAt = null
 		print("make null look at ")
+
+
+func transitionOut(delta : float):
+	print("why")
+	mesh_instance_3d.mesh.material.albedo_color.a = lerp(mesh_instance_3d.mesh.material.albedo_color.a, 1.0, 3 * delta)
+	if mesh_instance_3d.mesh.material.albedo_color.a > 0.99:
+		SignalBussin.emit_signal("NEXTSCENEAHHHHHH")
+
+
+func transitionIn(delta : float):
+	mesh_instance_3d.mesh.material.albedo_color.a = lerp(mesh_instance_3d.mesh.material.albedo_color.a, 0.0, 3 * delta)
+	if mesh_instance_3d.mesh.material.albedo_color.a < 0.01:
+		intro = false
+		print("yeet the child")
+
+func huh():
+	GOOOOO = true
