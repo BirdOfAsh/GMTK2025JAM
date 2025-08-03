@@ -11,8 +11,11 @@ func _ready() -> void:
 	switchBulbMesh(lightbulbActivatedReverse)
 
 func interaction(player : CharacterBody3D):
+	if player.heldObject == null:
+		disable()
 	player.call("pickup", self)
 	switchBulbMesh(true)
+	
 
 
 func disable():

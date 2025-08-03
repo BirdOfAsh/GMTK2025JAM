@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cxoxkpsyiiw6i"]
+[gd_scene load_steps=35 format=3 uid="uid://cxoxkpsyiiw6i"]
 
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="1_f4pg2"]
 [ext_resource type="Shader" uid="uid://dmifjv6gwkx2h" path="res://shaders/dithering.gdshader" id="1_rs4xw"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://b380aapm7bmwa" path="res://Sound/Voices/Lightbulb 2.wav" id="16_c7pbv"]
 [ext_resource type="PackedScene" uid="uid://bt8wlt5r70obw" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong2.blend" id="16_uclwg"]
 [ext_resource type="PackedScene" uid="uid://gn4xnt2gpwlu" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong3.blend" id="17_8x6gh"]
+[ext_resource type="PackedScene" uid="uid://dt23ori0iepfh" path="res://InteractableObjects/Objects/pipe_with_da_lever.tscn" id="17_xg5g8"]
 [ext_resource type="PackedScene" uid="uid://yt2ali884ws6" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeLong.blend" id="18_442u8"]
 [ext_resource type="PackedScene" uid="uid://d03o1xmtd4hmd" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeShort.blend" id="19_fxl23"]
 [ext_resource type="PackedScene" uid="uid://cs6rjug7ovrc1" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeShort2.blend" id="20_xg5g8"]
@@ -55,7 +56,7 @@ collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsj5a"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xg5g8"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -67,7 +68,7 @@ emission_energy_multiplier = 20.0
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_w38ni"]
-material = SubResource("StandardMaterial3D_hsj5a")
+material = SubResource("StandardMaterial3D_xg5g8")
 size = Vector2(0.1, 0.1)
 
 [node name="Level1" type="Node3D"]
@@ -254,6 +255,9 @@ transform = Transform3D(0, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1
 [node name="StrightPipeShort6" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("21_p7b0h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.585, 5.414, -3.948)
 
+[node name="PipeWithDaLever" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("17_xg5g8")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -8.585, 1.91377, -0.94826)
+
 [node name="Pipes2" type="Node3D" parent="SubViewportContainer/SubViewport/Box"]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 17.189, 0, 3.04914e-06)
 
@@ -307,6 +311,9 @@ transform = Transform3D(0, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1
 
 [node name="StrightPipeShort6" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("21_p7b0h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.585, 5.414, -3.948)
+
+[node name="PipeWithDaLever" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("17_xg5g8")]
+transform = Transform3D(-1, 7.10543e-15, -8.74228e-08, -7.10543e-15, 1, 0, 8.74228e-08, 0, -1, -8.585, 1.91377, -4.94826)
 
 [node name="Screen" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("22_2i07x")]
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 0.0630013, 4, -8.75)

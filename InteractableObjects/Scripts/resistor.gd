@@ -5,7 +5,11 @@ extends RigidBody3D
 
 
 func interaction(player : CharacterBody3D):
+	if player.heldObject == null:
+		disable()
+		
 	player.call("pickup", self)
+
 
 
 func setPosition(pos : Vector3):

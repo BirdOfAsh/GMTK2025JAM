@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dsexc125hp7fv"]
+[gd_scene load_steps=36 format=3 uid="uid://dsexc125hp7fv"]
 
 [ext_resource type="Shader" uid="uid://dmifjv6gwkx2h" path="res://shaders/dithering.gdshader" id="1_5wr1k"]
 [ext_resource type="PackedScene" uid="uid://cb7wyas7u3p46" path="res://Levels/level_manager.tscn" id="2_wtqdv"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cs6rjug7ovrc1" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeShort2.blend" id="20_g7xwt"]
 [ext_resource type="PackedScene" uid="uid://b21lbhy1gbbtv" path="res://InteractableObjects/BlenderModels/Pipes/StrightPipeShort3.blend" id="21_dg4kv"]
 [ext_resource type="PackedScene" uid="uid://bvqrw5awdwbxd" path="res://InteractableObjects/BlenderModels/Screen.blend" id="22_b0uqu"]
+[ext_resource type="PackedScene" uid="uid://dt23ori0iepfh" path="res://InteractableObjects/Objects/pipe_with_da_lever.tscn" id="22_n33ao"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7g2g1"]
 shader = ExtResource("1_5wr1k")
@@ -56,7 +57,7 @@ collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtqdv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n33ao"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -68,7 +69,7 @@ emission_energy_multiplier = 20.0
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_462h2"]
-material = SubResource("StandardMaterial3D_wtqdv")
+material = SubResource("StandardMaterial3D_n33ao")
 size = Vector2(0.1, 0.1)
 
 [node name="Level3" type="Node3D"]
@@ -85,11 +86,6 @@ render_target_update_mode = 4
 
 [node name="LevelManager" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_wtqdv")]
 puzzlesToComplete = 4
-
-[node name="TimerLabel" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_1yi2b")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.42725e-07, 5.01491, 6.35191)
-font_size = 126
-waitTime = 60.0
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_462h2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25032, 5)
@@ -351,6 +347,9 @@ transform = Transform3D(0, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1
 [node name="StrightPipeShort6" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("21_dg4kv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.585, 5.414, -3.948)
 
+[node name="PipeWithDaLever" parent="SubViewportContainer/SubViewport/Box/Pipes" instance=ExtResource("22_n33ao")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -8.585, 1.91377, -0.94826)
+
 [node name="Pipes2" type="Node3D" parent="SubViewportContainer/SubViewport/Box"]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 17.189, 0, 3.04914e-06)
 
@@ -405,6 +404,9 @@ transform = Transform3D(0, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1
 [node name="StrightPipeShort6" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("21_dg4kv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.585, 5.414, -3.948)
 
+[node name="PipeWithDaLever" parent="SubViewportContainer/SubViewport/Box/Pipes2" instance=ExtResource("22_n33ao")]
+transform = Transform3D(-1, 7.10543e-15, -8.74228e-08, -7.10543e-15, 1, 0, 8.74228e-08, 0, -1, -8.585, 1.91377, -4.94826)
+
 [node name="Screen" parent="SubViewportContainer/SubViewport/Box" instance=ExtResource("22_b0uqu")]
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 0.0630013, 4, -8.75)
 
@@ -415,7 +417,7 @@ waitTime = 60.0
 
 [node name="Sound" type="Node" parent="." node_paths=PackedStringArray("TimerLabel")]
 script = ExtResource("13_7fyyg")
-TimerLabel = NodePath("../SubViewportContainer/SubViewport/TimerLabel")
+TimerLabel = NodePath("../SubViewportContainer/SubViewport/Box/Screen/TimerLabel")
 
 [node name="Music" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("14_0cy58")

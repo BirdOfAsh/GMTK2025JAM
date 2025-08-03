@@ -7,6 +7,7 @@ var heldBulb : Lightbulb
 func _ready() -> void:
 	electricParts.emitting = true
 
+
 func interaction(player : CharacterBody3D):
 	if player.call("getHeldObject") is Lightbulb:
 		heldBulb = player.call("getHeldObject")
